@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.7)  28 MAY 2016 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.7)  1 JUN 2016 23:29
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -2919,7 +2919,14 @@ File: pics/trans4.png Graphic file (type png)
 <use pics/trans4.png>
 Package pdftex.def Info: pics/trans4.png used on input line 53.
 (pdftex.def)             Requested size: 341.43437pt x 262.09386pt.
-) [67 <./pics/trans4.png>]
+ [67 <./pics/trans4.png>]
+<pics/oripic.png, id=1558, 552.56438pt x 473.51906pt>
+File: pics/oripic.png Graphic file (type png)
+ <use pics/oripic.png>
+Package pdftex.def Info: pics/oripic.png used on input line 59.
+(pdftex.def)             Requested size: 426.79135pt x 365.73793pt.
+)
+[68 <./pics/oripic.png>]
 \openout2 = `contents/translation.aux'.
 
  (contents/translation.texpdfTeX warning (ext4): destination with the same iden
@@ -2950,7 +2957,7 @@ ignored
 <to be read again> 
                    \relax 
 l.15 \section{有限状态转移机}
-                                     [68
+                                     [69
 
 
 
@@ -2974,7 +2981,7 @@ m/m/n/12.05/53 � \C70/rm/m/n/12.05/62  |\C70/rm/m/n/12.05/20 |\OT1/ptm/m/n/12
 OT1/ptm/m/n/12.05 rsaxy 
  []
 
-[69]pdfTeX warning (ext4): destination with the same identifier (name{section.A
+[70]pdfTeX warning (ext4): destination with the same identifier (name{section.A
 .5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -2989,7 +2996,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{section.A.6})
 <to be read again> 
                    \relax 
 l.42 \section{扩展有限状态转移机}
-                                           [70]
+                                           [71]
 File: pics/trans3.png Graphic file (type png)
  <use pics/trans3.png>
 Package pdftex.def Info: pics/trans3.png used on input line 45.
@@ -2999,15 +3006,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{section.A.7})
 <to be read again> 
                    \relax 
 l.47 ...n{合并成单一的有限状态转移机}
-                                                   [71]
+                                                   [72]
 File: pics/trans4.png Graphic file (type png)
  <use pics/trans4.png>
 Package pdftex.def Info: pics/trans4.png used on input line 50.
 (pdftex.def)             Requested size: 341.43437pt x 262.09386pt.
 )
-Package atenddvi Info: Last page = 80.
+Package atenddvi Info: Last page = 81.
 
-[72]
+[73]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 14.
  (thesis.aux (contents/Cabstract.aux) (contents/Eabstract.aux)
@@ -3017,17 +3024,17 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 14.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 14.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 14.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7042C2BE98C4CD148577017AE0B13B54;9971.
+(rerunfilecheck)             Checksum: 51636EEC9B367986B00F8FE4329476D5;9971.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 32389 strings out of 493634
- 530191 string characters out of 3148637
- 613691 words of memory out of 3000000
- 34196 multiletter control sequences out of 15000+200000
+ 32397 strings out of 493634
+ 530312 string characters out of 3148637
+ 613779 words of memory out of 3000000
+ 34201 multiletter control sequences out of 15000+200000
  111784 words of font info for 370 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  56i,13n,89p,10582b,717s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3087,9 +3094,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><E:/Tools/MiKTex/fonts/type1/public/amsfonts/
 cm/cmtt10.pfb><E:/Tools/MiKTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb><E:/To
 ols/MiKTex/fonts/type1/public/marvosym/marvosym.pfb><E:/Tools/MiKTex/fonts/type
 1/urw/times/utmb8a.pfb><E:/Tools/MiKTex/fonts/type1/urw/times/utmr8a.pfb>
-Output written on thesis.pdf (80 pages, 2431227 bytes).
+Output written on thesis.pdf (81 pages, 3326630 bytes).
 PDF statistics:
- 2075 PDF objects out of 2487 (max. 8388607)
- 242 named destinations out of 1000 (max. 500000)
- 1146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2081 PDF objects out of 2487 (max. 8388607)
+ 244 named destinations out of 1000 (max. 500000)
+ 1151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
