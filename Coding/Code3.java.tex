@@ -1,0 +1,16 @@
+\noindent
+\ttfamily
+\hlstd{\hllin{1\ }DataSource\ dataSource\ }\hlopt{=\ }\hlstd{BlogDataSourceFactory}\hlopt{.}\Righttorque\\
+\hllin{2\ }\hlstd{}\hlkwd{getBlogDataSource}\hlstd{}\hlopt{();}\\
+\hllin{3\ }\hlstd{TransactionFactory\ transactionFactory\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\Righttorque\\
+\hllin{4\ }\hlstd{}\hlkwd{JdbcTransactionFactory}\hlstd{}\hlopt{();}\\
+\hllin{5\ }\hlstd{Environment\ environment\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Environment}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"development"}\hlstd{}\hlopt{,\ }\Righttorque\\
+\hllin{6\ }\hlstd{transactionFactory}\hlopt{,\ }\hlstd{dataSource}\hlopt{);}\\
+\hllin{7\ }\hlstd{Configuration\ configuration\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Configuration}\hlstd{}\hlopt{(}\hlstd{environment}\hlopt{);}\\
+\hllin{8\ }\hlstd{configuration}\hlopt{.}\hlstd{}\hlkwd{addMapper}\hlstd{}\hlopt{(}\hlstd{BlogMapper}\hlopt{.}\hlstd{}\hlkwa{class}\hlstd{}\hlopt{);}\\
+\hllin{9\ }\hlstd{SqlSessionFactory\ sqlSessionFactory\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\Righttorque\\
+\hllin{10\ }\hlstd{}\hlkwd{SqlSessionFactoryBuilder}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{build}\hlstd{}\hlopt{(}\hlstd{configuration}\hlopt{);}\\
+\hllin{11\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

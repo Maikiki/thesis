@@ -1,0 +1,12 @@
+\noindent
+\ttfamily
+\hlstd{\hllin{1\ }SAXBuilder\ buider\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{SAXBuilder}\hlstd{}\hlopt{();}\\
+\hllin{2\ }\hlstd{}\hlslc{//获得ftpSearcher{-}config.xml的位置}\\
+\hllin{3\ }\hlstd{URL\ path\ }\hlopt{=\ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{}\hlkwd{getClass}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{getClassLoader}\hlstd{}\hlopt{()}\\
+\hllin{4\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlopt{.}\hlstd{}\hlkwd{getResource}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"ftpSearcher{-}config.xml"}\hlstd{}\hlopt{);}\\
+\hllin{5\ }\hlstd{File\ file\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{File}\hlstd{}\hlopt{(}\hlstd{path}\hlopt{.}\hlstd{}\hlkwd{getPath}\hlstd{}\hlopt{())}\\
+\hllin{6\ }\hlstd{Document\ doc\ }\hlopt{=\ }\hlstd{buider}\hlopt{.}\hlstd{}\hlkwd{build}\hlstd{}\hlopt{(}\hlstd{file}\hlopt{);}\\
+\hllin{7\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

@@ -1,0 +1,17 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlopt{\symbol{60}}\hlstd{insert\ id}\hlopt{=}\hlstd{}\hlstr{"insertAuthor"}\hlstd{\ parameterType}\hlopt{=}\hlstd{}\hlstr{"domain.blog.Author"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{2\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlopt{\symbol{60}}\hlstd{selectKey\ keyProperty}\hlopt{=}\hlstd{}\hlstr{"id"}\hlstd{\ resultType}\hlopt{=}\hlstd{}\hlstr{"int"}\hlstd{\ \Righttorque\\
+\hllin{3\ }}\hlstd{\ \ }\hlstd{order}\hlopt{=}\hlstd{}\hlstr{"BEFORE"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{4\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{select\ }\hlkwd{CAST}\hlstd{}\hlopt{(}\hlstd{}\hlkwd{RANDOM}\hlstd{}\hlopt{(){*}}\hlstd{}\hlnum{1000000\ }\hlstd{}\hlkwa{as\ }\hlstd{INTEGER}\hlopt{)\ }\hlstd{a\ from\ SYSIBM}\hlopt{.}\Righttorque\\
+\hllin{5\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{SYSDUMMY1\\
+\hllin{6\ }}\hlstd{\ \ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{selectKey}\hlopt{\symbol{62}}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ }\hlstd{insert\ into\ Author\\
+\hllin{8\ }}\hlstd{\ \ \ \ }\hlstd{}\hlopt{(}\hlstd{id}\hlopt{,\ }\hlstd{username}\hlopt{,\ }\hlstd{password}\hlopt{,\ }\hlstd{email}\hlopt{,}\hlstd{bio}\hlopt{,\ }\hlstd{favourite\symbol{95}section}\hlopt{)}\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ }\hlstd{values\\
+\hllin{10\ }}\hlstd{\ \ \ \ }\hlstd{}\hlopt{(}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{id}\hlopt{\symbol{125},\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{username}\hlopt{\symbol{125},\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{password}\hlopt{\symbol{125},\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{email}\hlopt{\symbol{125},\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{bio}\hlopt{\symbol{125},\ }\hlstd{\#}\hlopt{\symbol{123}}\Righttorque\\
+\hllin{11\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{favouriteSection}\hlopt{,}\hlstd{jdbcType}\hlopt{=}\hlstd{VARCHAR}\hlopt{\symbol{125})}\\
+\hllin{12\ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{insert}\hlopt{\symbol{62}}\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

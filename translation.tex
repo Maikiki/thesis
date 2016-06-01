@@ -1,0 +1,180 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{The Name of the Game}
+\section{引言}
+\subsection{引言}
+Mybatis是一个支持自定义SQL查询、存储过程和高级映射的一流持久化框架。Mybatis消除了绝大部分JDBC代码和需要手工配置的参数及检索结果。Mybatis使用简单的XML文件或者JAVA注释来配置自身和原始映射，将接口和 Java 的 POJOs(Plan Old Java Objects,普通的 Java 对象)映射成数据库中的记录。
+\section{入门}
+每一个MyBatis应用围绕一个SqlSessionFactory实例。每个SqlSessionFactory实例可以通过SqlSessionFactoryBuilder获得。SqlSessionFactoryBuilder可以从XML配置文件或者一个自定义配置类的实例建立SqlSessionFactory实例。
+\subsection{通过XML构建SqlSessionFactory}
+通过一个XML文件来构建一个SqlSessionFactory实例很简单。建议你使用类路径下的资 源文件来配置，但是你可以使用任意InputStream实例来构建，包括由文字形式的文件路径 创建的实例或 URL 形式的文件路径 file://创建的实例。Mybatis包含一个名为Resources的工具类，它包含了一系列的方法，这些方法使得从类路径和其他位置加载资源文件更为简单。
+
+\input{Coding/Code1.java.tex}
+
+XML配置文件包含了Mybatis系统的核心设置，其中包括用于获取数据库连接实例的数据源(DataSource)，以及决定事务范围和控制的事务管理器(TransactionManager) 。这里展示一个简单的例子，文档后续内容将提供XML配置文件全部的详细说明。
+
+\input{Coding/Code2.java.tex}
+
+当然，XML 配置文件中还有很多可以配置的，在 上面的示例指出的则是最关键的部分。要注意 XML 文档头部需要验证 XML 文档正确性。Environment元素包含这对事务管理和连接池的环境配置。Mappers元素包含着mapper列表——mapper是包含SQL代码及映射定义的XML文件。
+\subsection{不使用XML来构建SqlSessionFactory}
+如果你更愿意直接从JAVA程序中而不是XML构建配置实例，或者创建你自己的配置生成器，Mybatis提供了一个完整的配置类(Configuration)，它提供所有与XML 文件中一样的配置选项。
+
+\input{Coding/Code3.java.tex}
+
+注意这种情况下配置是添加映射类。映射类是 Java 类,这些类包含 SQL 映射语句的注 解从而避免了 XML 文件的依赖。但是，由于JAVA注释的一些限制以及一些MyBatis映射的复杂性，XML映射仍然在大多数高级映射(比如：嵌套 Join 映射)时需要。由于以上原因，如果存在一个映射类对等的XML文件，Mybatis会自动的查找和加载它(在本例中，基于类路径和BlogMapper.class的类名，BlogMapper.xml将会被加载)。后面我们会了解更多。
+
+\subsection{从SqlSessionFactory获得SqlSession}
+
+现在你已经有了一个SqlSessionFactory，就如它名字所提示的，你可以从那获取一个SqlSession实例。SqlSession完全包含了各种在数据库中执行SQL命令的方法。你可以通过SqlSession实例直接执行已映射的SQL语句。例如：
+
+\input{Coding/Code4.java.tex}
+
+虽然这种方法可行，而且这种方法被Mybatis以前版本的用户所熟知，但现在有一种更为简洁的方法。使用合理描述参数和 SQL 语句返回值的接口(比如 BlogMapper.class) ,这样你现在就 可以执行更简洁,类型更安全的代码，没有容易发生的字符串文字和转换的错误。例如：
+
+\input{Coding/Code5.java.tex}
+
+现在我们来探究一下这里到底执行了什么。
+\subsection{探究已映射的SQL语句}
+这里你也许想知道通过 SqlSession 和 Mapper 对象到底执行了什么操作。已映射的 SQL 语句是一个很大的主题, 而且这个主题会贯穿本文档的大部分内容。 为了给一个宏观的概 念,这里有一些示例。
+
+上面提到的任何一个示例,语句是通过 XML 或注解定义的。我们先来看看 XML。使用基于 XML 的映射语言可以实现MyBatis所提供的完整特性。在过去的几年中，基于 XML 的映射语言使得MyBatis 非常流行。如果你之前使用过MyBatis，这个概念你应该很熟悉，但是 XML 映射文件也有 很多的改进,后面我们会详细来说。这里给出一个基于 XML 映射语句的示例,这些语句可以满足上述示例中 SqlSession 对象的调用。
+
+
+\input{Coding/Code6.java.tex}
+
+这个简单的例子中看起来有很多额外的东西, 但是也相当简洁了。你可以在一个单独的XML映射文件中定义很多的映射语句,除XML头部和文档类型声明之外,你可以得到很多方便之处。在文件的剩余部分是很好的自我解释。在命名空间 “com.mybatis.example.BlogMapper”中,它定义了一个名为“selectBlog”的映射语句,这 样它允许你使用完全限定名 “org.mybatis.example.BlogMapper.selectBlog” 来调用映射语句, 我们下面示例中所有的写法也是这样的。
+
+\input{Coding/Code7.java.tex}
+
+要注意这个使用完全限定名调用Java对象的方法是相似的,这样做是有原因的。这个命名可以直接映射到类名与命名空间一致的映射类，映射类包含一个与已映射查询语句的名称、参数、返回值都一致的方法即可。这就允许你非常容易地调用映射器接口中的方法, 这和你前面看到 的是一样的,下面这个示例中它又出现了。
+
+\input{Coding/Code8.java.tex}
+
+第二种方式有很多有点,首先它不是基于文字的,所以更安全。第二,如果你的 IDE 有代码补全功能,那么你可以利用它来操纵已映射的SQL语句。
+
+命名空间的一些注释：
+
+命名空间在之前版本的MyBatis中是可选项,非常混乱也没有帮助。现在,命名空间是必须的,而且有一个目的,不仅仅是简单地使用更长的完全限定名来隔离语句。
+
+就像你看到的那样,命名空间使得接口绑定成为可能。而且就算你认为你现在不会使用他们，你应该按照下面给出示例的来练习,以免改变自己的想法。使用命名空间,并将它放在合适的Java包空间之下，将会使你的代码变得简洁,在很长的时间内提高MyBatis 的可用性。
+
+命名解析: 为了减少输入量,MyBatis对所有的命名配置元素使用如下的命名解析规则, 配置元素包括语句,结果映射,缓存等。
+
+•   直接查找完全限定名(比如“com.mypackage.MyMapper.selectAllThings” ),如果发现就使用。
+
+•   短名称(比如“selectAllThings” )可以用来引用任意明确的条目。但是如果有两个 或两个以上的条目(比如“com.foo.selectAllThings ”和“com.bar.selectAllThings” ), 那么就会得到错误报告,说短名称是含糊的,因此就必须使用完全限定名。
+
+像BlogMapper这样的映射器类来说，还有一个窍门。它们中间映射的语句可以不需要在XML中来写，而可以使用Java注解来替换。比如，上面的XML示例可以替换为：
+
+\input{Coding/Code9.java.tex}
+
+对于简单语句来说,使用注解会更加清晰。然而Java注解对于复杂语句来说有局限性，且更加混乱。因此,如果你不得不做复杂的事情, 那么最好使用XML来映射语句。
+
+当然这也取决于你和你的项目团队的决定, 看哪种更适合你来使用, 用一致的方式去定义你的映射语句很重要。这表示,不要将自己局限在一种方式中。你可以轻松地将注解型映射语句换成XML映射语句,反之亦然。
+
+\subsection{范围和生命周期}
+理解我们目前已经讨论过的不同范围和生命周期类是很重要的。 不正确的使用它们会导 致严重的并发问题。
+\subsubsection{SqlSessionFactoryBuilder}
+这个类可以被实例化,使用和丢弃。一旦你创建了 SqlSessionFactory 后,这个类就不需 要存在了。因此 SqlSessionFactoryBuilder 实例的最佳范围是方法范围 (也就是本地方法变量)。你可以重用 SqlSessionFactoryBuilder 来创建多个 SqlSessionFactory 实例，但是最好不要保持它，以确保所有的XML解析资源能够释放去做更重要的事。
+\subsubsection{SqlSessionFactory}
+SqlSessionFactory一旦被创建，它应该持续在你的应用执行期间都存在。没有理由来处理或重新创建它。使用 SqlSessionFactory 的最佳实践是在应用运行期间不要重复创建多次。这样的 操作将被视为是很糟糕的。因此SqlSessionFactory的最佳范围是应用范围。有很多方法可 以做到，最简单的就是使用单例模式或者静态单例模式。
+\subsubsection{SqlSession}
+每个线程都需要有它自己的SqlSession实例。SqlSession实例不能被共享且不是线程安全的。因此SqlSession的最佳范围是请求范围或方法范围。绝对不能将 SqlSession 实例的引用放在一个 类的静态字段甚至是实例字段中。比如 Serlvet 架构中的 HttpSession。 如果你现在正用任意的 Web 框架， 要考虑 SqlSession 放在一个和 HTTP 请求对象相似的范围内。换句话说,基于收到的 HTTP 请求，你可以打开 了一个 SqlSession，然后返回响应，就可以关闭它了。关闭 Session 很重要，你应该确保使 用 finally 块来关闭它。下面的示例就是一个确保 SqlSession 关闭的基本模式：
+
+\input{Coding/Code10.java.tex}
+
+在你的代码中一贯地使用这种模式，将会保证所有数据库资源都正确地关闭。
+\subsubsection{Mapper实例}
+映射器是你创建来绑定映射语句的接口。映射器接口的实例可以从 SqlSession 中获得。那 么从技术上来说，当被请求时，任意映射器实例的最宽范围和 SqlSession 是相同的。然而， 映射器实例的最佳范围是方法范围。也就是说，它们应该在使用它们的方法中被请求，然后 就抛弃掉。它们不需要明确地关闭,那么在请求对象中保留它们也就不是什么问题了，这和 SqlSession 相似。你也许会发现，在这个水平上管理太多的资源的话会让你忙不过来。保持简单，将 映射器放在方法范围内。下面的示例就展示了这个实践：
+
+\input{Coding/Code10.java.tex}
+
+对象生命周期与依赖注入框架的注释：
+
+依赖注入框架可以创建线程安全的事务型的SqlSessions实例和映射器(Mapper)实例,并将它们直接注入到你的java bean中，所以你可以不考虑它们的生命周期了。你可以看一下Mybatis-Spring或者Mybatis-Guice这两个子项目去了解更多关于在依赖注入框架下使用Mybatis的内容。
+
+\section{Mapper XML文件}
+MyBatis真正的强大之处是在映射语句中。这是奇迹发生的地方。相对于MyBatis的强大，SQL映射的XML文件是简单的。当然如果你将它们和对等功能的JDBC代码来比较,你会马上发现映射文件节省了大约 95\%的代码量。MyBatis就是聚焦于 SQL而构建的，并且竭尽全力帮你脱离JDBC编程。
+
+SQL 映射文件只有很少的几个顶级元素（按照它们应该被定义的顺序）：
+
+•	cache – 指定命名空间的缓存配置。
+
+•	cache-ref – 从其他命名空间引用的缓存配置。
+
+•	resultMap – 最复杂,也是最强大的元素,用来描述如何从数据库结果集中来加 载你的对象。
+
+•	parameterMap – 不赞成使用！这是久风格的参数映射。内联参数是首选，这个元 素在将来可能被移除。这里就不阐述了。
+
+•	sql – 可以被其他语句引用的可重用的 SQL 块。
+
+•	insert – 映射插入语句
+
+•	update – 映射更新语句
+
+•	delete – 映射删除语句
+
+•	select – 映射查询语句
+
+下一部分将从语句本身开始来描述每个元素的细节。
+\subsection{Select}
+查询语句是使用MyBatis时最常用的元素之一。存入数据库的数据只有在你从数据库取出来时才有价值，所以大多数应用程序的查询要比更改数据多的多。 对于每次插入、更新或删除，其中也可能会伴随很多的查询操作。这是MyBatis的一个基本原则，也是将重心和努力放到查询和结果映射的原因。对简单的查询情况，查询元素也是较为简单的。比如：
+
+\input{Coding/Code11.java.tex}
+
+这个查询语句称为selectPerson，使用一个Int（或Integer）类型的参数，并返回一个HashMap类型的对象，其中的键是列名，值是列对应的值。
+注意参数注释：\#\{id\} 
+它告诉MyBatis创建一个预处理语句参数。在JDBC编程中，这样的一个参数在SQL中会 由一个“?”来标识，并被传递到一个新的预处理语句中，就像这样:
+
+\input{Coding/Code12.java.tex}
+
+当然, 这需要很多单独的 JDBC 的代码来提取结果并将它们映射到对象实例中, 这就是 MyBatis为你减少工作量之处。我们需要深入了解参数和结果映射。那些细节部分我们下面来了解。
+
+select 元素有很多属性，这些属性使你可以配置每条语句运作的细节。
+\input{Coding/Code13.java.tex}
+
+\subsection{Insert, Update and Delete}
+数据变更语句insert、update和delete在它们的实现中非常相似：
+
+\input{Coding/Code14.java.tex}
+
+下面是insert、update和delete语句的示例：
+
+\input{Coding/Code15.java.tex}
+
+如前所述，插入语句有一点多，它有一些属性和子元素用来处理主键的生成。
+首先,如果你的数据库支持自动生成主键的字段(比如MySQL和SQL Server)，那么你可以设置 useGeneratedKeys=”true”，并且设置keyProperty到你已经做好的目标属性上就行了。例如，如果上面的Author表已经对id使用了自动生成的列类型,那么语句可以修改为：
+
+\input{Coding/Code16.java.tex}
+
+MyBatis 有另外一种方法来处理数据库不支持自动生成类型，或者可能JDBC驱动不支持自动生成主键时的主键生成问题。
+
+这里有一个简单(有点傻)的示例，它可以生成一个随机ID(可能你不会这么做，但是这展示了MyBatis处理问题的灵活性，因为它并不关心ID的生成)：
+
+
+\input{Coding/Code17.java.tex}
+
+在上面的示例中，selectKey 元素将会首先运行，Author的id会被设置，然后插入语句 会被调用。这给你了一个类似的行为在你的数据库中来处理自动生成的主键, 而不需要使你的 Java 代码变得复杂。
+
+selectKey 元素描述如下：
+
+\input{Coding/Code18.java.tex}
+
+\subsection{Sql}
+这个元素可以被用来定义可重用的SQL代码段,可以包含在其他语句中。比如：
+
+\input{Coding/Code19.java.tex}
+
+这个 SQL 片段可以被包含在其他语句中，例如：
+
+\input{Coding/Code20.java.tex}
+\subsection{Parameters}
+在之前的语句中, 你已经看到了一些简单参数的示例。 MyBatis 中，参数是非常强大的元素。对于大概占了90\%全部情况的简单情况，参数并不会太复杂，比如：
+
+\input{Coding/Code21.java.tex}
+
+上面的这个示例展示了一个非常简单的命名参数映射。参数类型被设置为“int” ,因此这个参数可以被设置成任何内容。 原生的类型或简单数据类型，比如整型和没有相关属性的字符串,因此它会完全用参数来替代。然而,如果你传递了一个复杂的对象,那么 MyBatis 的处理方式就会有一点不同。比如：
+
+\input{Coding/Code22.java.tex}
+
+如果 User 类型的参数对象传递到了语句中，id、username 和 password 属性将会被找出来，然后它们的值就被传递到预处理语句的参数中。

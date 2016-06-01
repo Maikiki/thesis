@@ -1,0 +1,22 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlopt{\symbol{60}}\hlstd{?xml\ version}\hlopt{=}\hlstd{}\hlstr{"1.0"}\hlstd{\ encoding}\hlopt{=}\hlstd{}\hlstr{"UTF{-}8"}\hlstd{?}\hlopt{\symbol{62}}\\
+\hllin{2\ }\hlstd{}\hlopt{\symbol{60}!}\hlstd{DOCTYPE\ mapper\ PUBLIC\ }\hlstr{"{-}//mybatis.org//DTD\ Mapper\ 3.0//EN"}\hlstd{\ }\\
+\hllin{3\ }\hlstr{"http://mybatis.org/dtd/mybatis{-}3{-}mapper.dtd"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{4\ }\hlstd{}\\
+\hllin{5\ }\hlopt{\symbol{60}}\hlstd{mapper\ namespace}\hlopt{=}\hlstd{}\hlstr{"ftpSearcher.mybatis.mapper.}\Righttorque\\
+\hllin{6\ }\hlstr{FeedbackMapper"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{7\ }\hlstd{\\
+\hllin{8\ }}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{60}}\hlstd{insert\ id}\hlopt{=}\hlstd{}\hlstr{"insertFeedback"}\hlstd{\ parameterType}\hlopt{=}\hlstd{}\hlstr{"ftpSearcher.}\Righttorque\\
+\hllin{9\ }\hlstr{}\hlstd{\ \ \ \ }\hlstr{model.Feedback"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{INSERT\ INTO\ feedback\\
+\hllin{11\ }}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{(}\hlstd{username}\hlopt{,\ }\hlstd{comment}\hlopt{,}\hlstd{commentdate}\hlopt{)\ }\hlstd{VALUES\\
+\hllin{12\ }}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{(}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{username}\hlopt{\symbol{125},}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{comment}\hlopt{\symbol{125},}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{commentdate}\hlopt{\symbol{125})}\\
+\hllin{13\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{insert}\hlopt{\symbol{62}}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{60}}\hlstd{delete\ id}\hlopt{=}\hlstd{}\hlstr{"deleteByID"}\hlstd{\ parameterType}\hlopt{=}\hlstd{}\hlstr{"int"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{15\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{delete\ from\ feedback\ where\ id\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{id}\hlopt{\symbol{125}}\\
+\hllin{16\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{delete}\hlopt{\symbol{62}}\\
+\hllin{17\ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{mapper}\hlopt{\symbol{62}}\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

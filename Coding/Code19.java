@@ -1,0 +1,1 @@
+<sql id="userColumns"> id,username,password </sql>

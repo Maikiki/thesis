@@ -1,0 +1,32 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlkwa{public\ class\ }\hlstd{FTPSpider\ }\hlopt{\symbol{123}}\\
+\hllin{2\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{FTPClient}\hlstd{\ \ \ \ \ }\hlstd{ftp}\hlopt{;}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlopt{}\hlstd{}\hlslc{//\ FTP客户端类}\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{String}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{server}\hlopt{;}\hlstd{\ \ \ \ \ \ \ \ \ }\hlopt{}\hlstd{}\hlslc{//\ }\Righttorque\\
+\hllin{4\ }\hlslc{}\hlstd{\ \ \ \ }\hlslc{连接的FTP服务器}\\
+\hllin{5\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{}\hlkwb{int}\hlstd{\ \ \ \ \ \ \ \ \ \ \ }\hlkwb{}\hlstd{port}\hlopt{;}\hlstd{\ \ \ \ \ \ \ \ \ \ \ }\hlopt{}\hlstd{}\hlslc{//\ }\Righttorque\\
+\hllin{6\ }\hlslc{}\hlstd{\ \ \ \ }\hlslc{FTP服务器开放的端口}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{String}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{controlEncoding}\hlopt{;\ }\hlstd{}\hlslc{//\ 控制编码}\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{String}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{charEncoding}\hlopt{;}\hlstd{\ \ \ }\hlopt{}\hlstd{}\hlslc{//\ 字符集编码}\\
+\hllin{9\ }\hlstd{\\
+\hllin{10\ }}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{String}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{outputFile}\hlopt{;}\hlstd{\ \ \ \ \ }\hlopt{}\hlstd{}\hlslc{//\ }\Righttorque\\
+\hllin{11\ }\hlslc{}\hlstd{\ \ \ \ }\hlslc{输出文件的位置}\\
+\hllin{12\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{Queue}\hlopt{\symbol{60}}\hlstd{String}\hlopt{\symbol{62}\ }\hlstd{pathQueue}\hlopt{;}\hlstd{\ \ \ \ \ \ }\hlopt{}\hlstd{}\hlslc{//\ }\Righttorque\\
+\hllin{13\ }\hlslc{}\hlstd{\ \ \ \ }\hlslc{路径队列，遍历FTP服务器时使用}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{}\hlkwb{int}\hlstd{\ \ \ \ \ \ \ \ \ \ \ }\hlkwb{}\hlstd{count\ }\hlopt{=\ }\hlstd{}\hlnum{0}\hlstd{}\hlopt{;}\hlstd{\ \ \ \ \ \ }\hlopt{}\hlstd{}\hlslc{//\ }\Righttorque\\
+\hllin{15\ }\hlslc{}\hlstd{\ \ \ \ }\hlslc{记录遍历的文件数量}\\
+\hllin{16\ }\hlstd{\\
+\hllin{17\ }}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{public\ }\hlstd{}\hlkwb{int\ }\hlstd{}\hlkwd{getCount}\hlstd{}\hlopt{()}\hlstd{\ \ }\hlopt{}\hlstd{}\hlslc{//遍历文件数量}\\
+\hllin{18\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{public\ }\hlstd{}\hlkwd{FTPSpider}\hlstd{}\hlopt{(}\hlstd{String\ server}\hlopt{,\ }\hlstd{}\hlkwb{int\ }\hlstd{port}\hlopt{,\ }\hlstd{String\ \Righttorque\\
+\hllin{19\ }}\hlstd{\ \ \ \ }\hlstd{charEncoding}\hlopt{,}\hlstd{String\ outputFile}\hlopt{)}\hlstd{\ \ }\hlopt{}\hlstd{}\hlslc{//构造方法}\\
+\hllin{20\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{public\ }\hlstd{}\hlkwd{FTPSpider}\hlstd{}\hlopt{(}\hlstd{String\ server}\hlopt{,\ }\hlstd{String\ outputFile}\hlopt{)}\hlstd{\ \ }\hlopt{}\Righttorque\\
+\hllin{21\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlslc{//构造方法}\\
+\hllin{22\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{public\ }\hlstd{}\hlkwb{void\ }\hlstd{}\hlkwd{connectFTP}\hlstd{}\hlopt{()}\hlstd{\ \ }\hlopt{}\hlstd{}\hlslc{//连接FTP服务器}\\
+\hllin{23\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{public\ }\hlstd{}\hlkwb{void\ }\hlstd{}\hlkwd{getFTPInfo}\hlstd{}\hlopt{(}\hlstd{String\ remotePath}\hlopt{)}\hlstd{\ \ }\hlopt{}\Righttorque\\
+\hllin{24\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlslc{//扫描指定目录}\\
+\hllin{25\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{}\hlkwb{void\ }\hlstd{}\hlkwd{closeTheConnect}\hlstd{}\hlopt{()}\hlstd{\ \ }\hlopt{}\hlstd{}\hlslc{//退出FTP服务器}\\
+\hllin{26\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{27\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

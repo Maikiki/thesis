@@ -1,0 +1,20 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlopt{\symbol{60}}\hlstd{insert\ id}\hlopt{=}\hlstd{}\hlstr{"insertAuthor"}\hlstd{\ parameterType}\hlopt{=}\hlstd{}\hlstr{"domain.blog.Author"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{2\ }\hlstd{}\hlstd{\ \ }\hlstd{insert\ into\ }\hlkwd{Author\ }\hlstd{}\hlopt{(}\hlstd{id}\hlopt{,}\hlstd{username}\hlopt{,}\hlstd{password}\hlopt{,}\hlstd{email}\hlopt{,}\hlstd{bio}\hlopt{)}\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlkwd{values\ }\hlstd{}\hlopt{(}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{id}\hlopt{\symbol{125},}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{username}\hlopt{\symbol{125},}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{password}\hlopt{\symbol{125},}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{email}\hlopt{\symbol{125},}\hlstd{\#}\hlopt{\symbol{123}}\hlstd{bio}\hlopt{\symbol{125})}\\
+\hllin{4\ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{insert}\hlopt{\symbol{62}}\\
+\hllin{5\ }\hlstd{}\hlopt{\symbol{60}}\hlstd{update\ id}\hlopt{=}\hlstd{}\hlstr{"updateAuthor"}\hlstd{\ parameterType}\hlopt{=}\hlstd{}\hlstr{"domain.blog.Author"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{6\ }\hlstd{}\hlstd{\ \ }\hlstd{update\ Author\ set\\
+\hllin{7\ }}\hlstd{\ \ \ \ }\hlstd{username\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{username}\hlopt{\symbol{125},}\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{password\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{password}\hlopt{\symbol{125},}\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{email\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{email}\hlopt{\symbol{125},}\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{bio\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{bio}\hlopt{\symbol{125}}\\
+\hllin{11\ }\hlstd{}\hlstd{\ \ }\hlstd{where\ id\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{id}\hlopt{\symbol{125}}\\
+\hllin{12\ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{update}\hlopt{\symbol{62}}\\
+\hllin{13\ }\hlstd{}\hlopt{\symbol{60}}\hlstd{delete\ id}\hlopt{=}\hlstd{}\hlstr{"deleteAuthor"}\hlstd{\ parameterType}\hlopt{=}\hlstd{}\hlstr{"int"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ }\hlstd{delete\ from\ Author\ where\ id\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{id}\hlopt{\symbol{125}}\\
+\hllin{15\ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{delete}\hlopt{\symbol{62}}\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

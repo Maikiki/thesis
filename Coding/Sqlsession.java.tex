@@ -1,0 +1,12 @@
+\noindent
+\ttfamily
+\hlstd{\hllin{1\ }String\ resource\ }\hlopt{=\ }\hlstd{}\hlstr{"/mybatis{-}config.xml"}\hlstd{}\hlopt{;}\\
+\hllin{2\ }\hlstd{InputStream\ inputStream\ }\hlopt{=\ }\hlstd{Resources}\hlopt{.}\hlstd{}\hlkwd{getResourceAsStream}\hlstd{}\hlopt{(}\Righttorque\\
+\hllin{3\ }\hlstd{resource}\hlopt{);}\\
+\hllin{4\ }\hlstd{SqlSessionFactory\ sqlSessionFactory\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\Righttorque\\
+\hllin{5\ }\hlstd{}\hlkwd{SqlSessionFactoryBuilder}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{build}\hlstd{}\hlopt{(}\hlstd{inputStream}\hlopt{);}\\
+\hllin{6\ }\hlstd{SqlSession\ session\ }\hlopt{=\ }\hlstd{sqlSessionFactory}\hlopt{.}\hlstd{}\hlkwd{openSession}\hlstd{}\hlopt{();}\\
+\hllin{7\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

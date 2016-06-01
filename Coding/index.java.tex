@@ -1,0 +1,24 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlkwa{protected\ }\hlstd{}\hlkwb{void\ }\hlstd{}\hlkwd{addIntoIndex}\hlstd{}\hlopt{(}\hlstd{String\ name}\hlopt{,\ }\hlstd{String\ type}\hlopt{,\ }\hlstd{}\hlkwb{long\ }\Righttorque\\
+\hllin{2\ }\hlstd{size}\hlopt{,\ }\hlstd{}\hlkwb{int\ }\hlstd{date}\hlopt{,}\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{String\ path}\hlopt{)\ }\hlstd{}\hlkwa{throws\ }\hlstd{Exception\ }\hlopt{\symbol{123}}\\
+\hllin{4\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{Document\ doc\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Document}\hlstd{}\hlopt{();}\\
+\hllin{5\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlslc{//初始化Lucene文档}\\
+\hllin{6\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{doc}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Field}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"name"}\hlstd{}\hlopt{,\ }\hlstd{name}\hlopt{,\ }\hlstd{Field}\hlopt{.}\hlstd{Store}\hlopt{.}\hlstd{YES}\hlopt{,\ }\hlstd{Field}\hlopt{.}\Righttorque\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{Index}\hlopt{.}\hlstd{ANALYZED}\hlopt{));}\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{doc}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Field}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"type"}\hlstd{}\hlopt{,\ }\hlstd{type}\hlopt{,\ }\hlstd{Field}\hlopt{.}\hlstd{Store}\hlopt{.}\hlstd{YES}\hlopt{,\ }\hlstd{Field}\hlopt{.}\Righttorque\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{Index}\hlopt{.}\hlstd{NOT\symbol{95}ANALYZED}\hlopt{));}\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{doc}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{NumericField}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"size"}\hlstd{}\hlopt{,\ }\hlstd{Field}\hlopt{.}\hlstd{Store}\hlopt{.}\hlstd{YES}\hlopt{,\ }\hlstd{true}\hlopt{).}\Righttorque\\
+\hllin{11\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwd{setLongValue}\hlstd{}\hlopt{(}\hlstd{size}\hlopt{));}\\
+\hllin{12\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{doc}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{NumericField}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"date"}\hlstd{}\hlopt{,\ }\hlstd{Field}\hlopt{.}\hlstd{Store}\hlopt{.}\hlstd{YES}\hlopt{,\ }\hlstd{true}\hlopt{).}\Righttorque\\
+\hllin{13\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwd{setIntValue}\hlstd{}\hlopt{(}\hlstd{date}\hlopt{));}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{doc}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Field}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"path"}\hlstd{}\hlopt{,\ }\hlstd{path}\hlopt{,\ }\hlstd{Field}\hlopt{.}\hlstd{Store}\hlopt{.}\hlstd{YES}\hlopt{,\ }\hlstd{Field}\hlopt{.}\Righttorque\\
+\hllin{15\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{Index}\hlopt{.}\hlstd{NOT\symbol{95}ANALYZED}\hlopt{));}\\
+\hllin{16\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlslc{//将文档添加到Lucene索引}\\
+\hllin{17\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{indexWriter}\hlopt{.}\hlstd{}\hlkwd{addDocument}\hlstd{}\hlopt{(}\hlstd{doc}\hlopt{);}\\
+\hllin{18\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{19\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

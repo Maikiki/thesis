@@ -1,0 +1,44 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlkwa{public\ }\hlstd{String\ }\hlkwd{intercept}\hlstd{}\hlopt{(}\hlstd{ActionInvocation\ actionInvocation}\hlopt{)\ }\Righttorque\\
+\hllin{2\ }\hlstd{}\hlkwa{throws\ }\hlstd{Exception\ }\hlopt{\symbol{123}}\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{UserQueryLog\ userQueryLog\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{UserQueryLog}\hlstd{}\hlopt{();}\\
+\hllin{4\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwb{int\ }\hlstd{page\ }\hlopt{=\ }\hlstd{}\hlnum{1}\hlstd{}\hlopt{;}\\
+\hllin{5\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{ServletActionContext}\hlopt{.}\hlstd{}\hlkwd{getRequest}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{getParameter}\hlstd{}\hlopt{(}\Righttorque\\
+\hllin{6\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlstr{"page"}\hlstd{}\hlopt{)\ !=\ }\hlstd{null}\hlopt{)\ \symbol{123}}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{page\ }\hlopt{=\ }\hlstd{Integer}\hlopt{.}\hlstd{}\hlkwd{valueOf}\hlstd{}\hlopt{(}\hlstd{ServletActionContext}\hlopt{.}\Righttorque\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwd{getRequest}\hlstd{}\hlopt{()}\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{.}\hlstd{}\hlkwd{getParameter}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"page"}\hlstd{}\hlopt{));}\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{11\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{userQueryLog}\hlopt{.}\hlstd{}\hlkwd{setQuerypage}\hlstd{}\hlopt{(}\hlstd{page}\hlopt{);}\\
+\hllin{12\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{userQueryLog}\hlopt{.}\hlstd{}\hlkwd{setQuerytime}\hlstd{}\hlopt{(}\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Date}\hlstd{}\hlopt{(}\hlstd{System}\hlopt{.}\Righttorque\\
+\hllin{13\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwd{currentTimeMillis}\hlstd{}\hlopt{()));}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{userQueryLog}\hlopt{.}\hlstd{}\hlkwd{setQueryword}\hlstd{}\hlopt{(}\hlstd{ServletActionContext}\hlopt{.}\Righttorque\\
+\hllin{15\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwd{getRequest}\hlstd{}\hlopt{()}\\
+\hllin{16\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{.}\hlstd{}\hlkwd{getParameter}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"keywords"}\hlstd{}\hlopt{));}\\
+\hllin{17\ }\hlstd{\\
+\hllin{18\ }}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{try\ }\hlstd{}\hlopt{\symbol{123}}\\
+\hllin{19\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{String\ resource\ }\hlopt{=\ }\hlstd{}\hlstr{"/mybatis{-}config.xml"}\hlstd{}\hlopt{;}\\
+\hllin{20\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{InputStream\ inputStream\ }\hlopt{=\ }\hlstd{Resources}\hlopt{.}\Righttorque\\
+\hllin{21\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwd{getResourceAsStream}\hlstd{}\hlopt{(}\hlstd{resource}\hlopt{);}\\
+\hllin{22\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{SqlSessionFactory\ sqlSessionFactory\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\Righttorque\\
+\hllin{23\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwd{SqlSessionFactoryBuilder}\hlstd{}\hlopt{()}\\
+\hllin{24\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{.}\hlstd{}\hlkwd{build}\hlstd{}\hlopt{(}\hlstd{inputStream}\hlopt{);}\\
+\hllin{25\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{SqlSession\ session\ }\hlopt{=\ }\hlstd{sqlSessionFactory}\hlopt{.}\hlstd{}\hlkwd{openSession}\hlstd{}\hlopt{();}\\
+\hllin{26\ }\hlstd{\\
+\hllin{27\ }}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{UserQueryLogMapper\ userQueryLogMapper\ }\hlopt{=\ }\hlstd{session\\
+\hllin{28\ }}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{.}\hlstd{}\hlkwd{getMapper}\hlstd{}\hlopt{(}\hlstd{UserQueryLogMapper}\hlopt{.}\hlstd{}\hlkwa{class}\hlstd{}\hlopt{);}\\
+\hllin{29\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{userQueryLogMapper}\hlopt{.}\hlstd{}\hlkwd{inserUserQueryLog}\hlstd{}\hlopt{(}\hlstd{userQueryLog}\hlopt{);}\\
+\hllin{30\ }\hlstd{\\
+\hllin{31\ }}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{session}\hlopt{.}\hlstd{}\hlkwd{commit}\hlstd{}\hlopt{();}\\
+\hllin{32\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{session}\hlopt{.}\hlstd{}\hlkwd{close}\hlstd{}\hlopt{();}\\
+\hllin{33\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{125}\ }\hlstd{}\hlkwa{catch\ }\hlstd{}\hlopt{(}\hlstd{Exception\ e}\hlopt{)\ \symbol{123}}\\
+\hllin{34\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{e}\hlopt{.}\hlstd{}\hlkwd{printStackTrace}\hlstd{}\hlopt{();}\\
+\hllin{35\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{36\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{return\ }\hlstd{actionInvocation}\hlopt{.}\hlstd{}\hlkwd{invoke}\hlstd{}\hlopt{();}\\
+\hllin{37\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{38\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{39\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

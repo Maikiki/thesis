@@ -1,0 +1,30 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlkwa{for\ }\hlstd{}\hlopt{(}\hlstd{Files\ newFile\ }\hlopt{:\ }\hlstd{newFiles}\hlopt{)\ \symbol{123}}\\
+\hllin{2\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{for\ }\hlstd{}\hlopt{(}\hlstd{Files\ oldFile\ }\hlopt{:\ }\hlstd{oldFiles}\hlopt{)\ \symbol{123}}\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{newFile}\hlopt{.}\hlstd{}\hlkwd{getPath}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{equals}\hlstd{}\hlopt{(}\hlstd{oldFile}\hlopt{.}\hlstd{}\hlkwd{getPath}\hlstd{}\hlopt{()))\ \symbol{123}}\\
+\hllin{4\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{modified\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{Files}\hlstd{}\hlopt{(}\hlstd{newFile}\hlopt{.}\hlstd{}\hlkwd{getPath}\hlstd{}\hlopt{());}\\
+\hllin{5\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfNew\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{DeleteIndex}\hlstd{}\hlopt{();}\\
+\hllin{6\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfOld\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{DeleteIndex}\hlstd{}\hlopt{();}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfNew}\hlopt{.}\hlstd{}\hlkwd{setFilesIndex}\hlstd{}\hlopt{(}\hlstd{newFiles}\hlopt{.}\hlstd{}\hlkwd{indexOf}\hlstd{}\hlopt{(}\Righttorque\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{newFile}\hlopt{));}\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfOld}\hlopt{.}\hlstd{}\hlkwd{setFilesIndex}\hlstd{}\hlopt{(}\hlstd{oldFiles}\hlopt{.}\hlstd{}\hlkwd{indexOf}\hlstd{}\hlopt{(}\Righttorque\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{oldFile}\hlopt{));}\\
+\hllin{11\ }\hlstd{\\
+\hllin{12\ }}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{newFile}\hlopt{.}\hlstd{}\hlkwd{compare}\hlstd{}\hlopt{(}\hlstd{oldFile}\hlopt{.}\hlstd{}\hlkwd{getFileInfos}\hlstd{}\hlopt{(),}\\
+\hllin{13\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfNew}\hlopt{.}\hlstd{}\hlkwd{getFileInfoIndex}\hlstd{}\hlopt{(),}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfOld}\hlopt{.}\hlstd{}\hlkwd{getFileInfoIndex}\hlstd{}\hlopt{(),}\\
+\hllin{15\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{modified}\hlopt{.}\hlstd{}\hlkwd{getFileInfos}\hlstd{}\hlopt{());}\\
+\hllin{16\ }\hlstd{\\
+\hllin{17\ }}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{modifiedFiles}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{modified}\hlopt{);}\\
+\hllin{18\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{deleteInNew}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{indexOfNew}\hlopt{);}\\
+\hllin{19\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{deleteInOld}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{indexOfOld}\hlopt{);}\\
+\hllin{20\ }\hlstd{\\
+\hllin{21\ }}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{break}\hlstd{}\hlopt{;}\\
+\hllin{22\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{23\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{24\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{25\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

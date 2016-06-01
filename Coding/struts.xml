@@ -1,0 +1,5 @@
+<action name="search" class="ftpSearcher.action.FTPSearch">
+	<interceptor-ref name="defaultStack" />
+	<interceptor-ref name="userQueryLoginterceptor" />
+	<result name="success">/results.jsp</result>
+</action>

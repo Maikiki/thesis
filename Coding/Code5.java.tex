@@ -1,0 +1,14 @@
+\noindent
+\ttfamily
+\hlstd{\hllin{1\ }SqlSession\ session\ }\hlopt{=\ }\hlstd{sqlSessionFactory}\hlopt{.}\hlstd{}\hlkwd{openSession}\hlstd{}\hlopt{();}\\
+\hllin{2\ }\hlstd{}\hlkwa{try\ }\hlstd{}\hlopt{\symbol{123}}\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{BlogMapper\ mapper\ }\hlopt{=\ }\hlstd{session}\hlopt{.}\hlstd{}\hlkwd{getMapper}\hlstd{}\hlopt{(}\hlstd{BlogMapper}\hlopt{.}\hlstd{}\hlkwa{class}\hlstd{}\hlopt{);}\\
+\hllin{4\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{Blog\ blog\ }\hlopt{=\ }\hlstd{mapper}\hlopt{.}\hlstd{}\hlkwd{selectBlog}\hlstd{}\hlopt{(}\hlstd{}\hlnum{101}\hlstd{}\hlopt{);}\\
+\hllin{5\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{6\ }\hlstd{}\hlkwa{finally\ }\hlstd{}\hlopt{\symbol{123}}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{session}\hlopt{.}\hlstd{}\hlkwd{close}\hlstd{}\hlopt{();}\\
+\hllin{8\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{9\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

@@ -1,0 +1,24 @@
+\noindent
+\ttfamily
+\hlstd{\hllin{1\ }Element\ eIndexDir\ }\hlopt{=\ }\hlstd{root}\hlopt{.}\hlstd{}\hlkwd{getChild}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"indexDir"}\hlstd{}\hlopt{);}\\
+\hllin{2\ }\hlstd{eIndexDir}\hlopt{.}\hlstd{}\hlkwd{setText}\hlstd{}\hlopt{(}\hlstd{indexDir}\hlopt{);}\\
+\hllin{3\ }\hlstd{\\
+\hllin{4\ }Element\ eFileInfoDir\ }\hlopt{=\ }\hlstd{root}\hlopt{.}\hlstd{}\hlkwd{getChild}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"fileInfoDir"}\hlstd{}\hlopt{);}\\
+\hllin{5\ }\hlstd{eFileInfoDir}\hlopt{.}\hlstd{}\hlkwd{setText}\hlstd{}\hlopt{(}\hlstd{fileInfoDir}\hlopt{);}\\
+\hllin{6\ }\hlstd{\\
+\hllin{7\ }Element\ eLogDir\ }\hlopt{=\ }\hlstd{root}\hlopt{.}\hlstd{}\hlkwd{getChild}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"logDir"}\hlstd{}\hlopt{);}\\
+\hllin{8\ }\hlstd{eLogDir}\hlopt{.}\hlstd{}\hlkwd{setText}\hlstd{}\hlopt{(}\hlstd{logDir}\hlopt{);}\\
+\hllin{9\ }\hlstd{}\\
+\hllin{10\ }\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{password}\hlopt{.}\hlstd{}\hlkwd{length}\hlstd{}\hlopt{()\ !=\ }\hlstd{}\hlnum{0}\hlstd{}\hlopt{)\ \symbol{123}}\\
+\hllin{11\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{Element\ ePassword\ }\hlopt{=\ }\hlstd{root}\hlopt{.}\hlstd{}\hlkwd{getChild}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"password"}\hlstd{}\hlopt{);}\\
+\hllin{12\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{ePassword}\hlopt{.}\hlstd{}\hlkwd{setText}\hlstd{}\hlopt{(}\hlstd{}\hlkwd{getMD5}\hlstd{}\hlopt{(}\hlstd{password}\hlopt{));}\\
+\hllin{13\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{14\ }\hlstd{\\
+\hllin{15\ }String\ des\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{XMLOutputter}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{outputString}\hlstd{}\hlopt{(}\hlstd{doc}\hlopt{);}\\
+\hllin{16\ }\hlstd{FileWriter\ fileWriter\ }\hlopt{=\ }\hlstd{}\hlkwa{new\ }\hlstd{}\hlkwd{FileWriter}\hlstd{}\hlopt{(}\hlstd{file}\hlopt{);}\\
+\hllin{17\ }\hlstd{fileWriter}\hlopt{.}\hlstd{}\hlkwd{write}\hlstd{}\hlopt{(}\hlstd{des}\hlopt{);}\\
+\hllin{18\ }\hlstd{fileWriter}\hlopt{.}\hlstd{}\hlkwd{close}\hlstd{}\hlopt{();}\\
+\hllin{19\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

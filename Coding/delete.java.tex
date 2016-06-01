@@ -1,0 +1,12 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlslc{//假定session对象实例已被构建}\\
+\hllin{2\ }\hlstd{FeedbackMapper\ feedbackMapper\ }\hlopt{=\ }\hlstd{session}\hlopt{.}\hlstd{}\hlkwd{getMapper}\hlstd{}\hlopt{(}\Righttorque\\
+\hllin{3\ }\hlstd{FeedbackMapper}\hlopt{.}\hlstd{}\hlkwa{class}\hlstd{}\hlopt{);}\\
+\hllin{4\ }\hlstd{feedbackMapper}\hlopt{.}\hlstd{}\hlkwd{deleteByID}\hlstd{}\hlopt{(}\hlstd{feedbackID}\hlopt{);}\\
+\hllin{5\ }\hlstd{session}\hlopt{.}\hlstd{}\hlkwd{commit}\hlstd{}\hlopt{();}\\
+\hllin{6\ }\hlstd{session}\hlopt{.}\hlstd{}\hlkwd{close}\hlstd{}\hlopt{();}\\
+\hllin{7\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

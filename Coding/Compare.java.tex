@@ -1,0 +1,29 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlkwa{public\ }\hlstd{}\hlkwb{void\ }\hlstd{}\hlkwd{compare}\hlstd{}\hlopt{(}\hlstd{ArrayList}\hlopt{\symbol{60}}\hlstd{FileInfo}\hlopt{\symbol{62}\ }\hlstd{oldFileInfos}\hlopt{,}\\
+\hllin{2\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{ArrayList}\hlopt{\symbol{60}}\hlstd{FileInfo}\hlopt{\symbol{62}\ }\hlstd{indexOfNew}\hlopt{,\ }\Righttorque\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{ArrayList}\hlopt{\symbol{60}}\hlstd{FileInfo}\hlopt{\symbol{62}\ }\hlstd{indexOfOld}\hlopt{,}\\
+\hllin{4\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{ArrayList}\hlopt{\symbol{60}}\hlstd{FileInfo}\hlopt{\symbol{62}\ }\hlstd{modified}\hlopt{)\ \symbol{123}}\\
+\hllin{5\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{for\ }\hlstd{}\hlopt{(}\hlstd{FileInfo\ newOne\ }\hlopt{:\ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{fileInfos}\hlopt{)\ \symbol{123}}\\
+\hllin{6\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{for\ }\hlstd{}\hlopt{(}\hlstd{FileInfo\ oldOne\ }\hlopt{:\ }\hlstd{oldFileInfos}\hlopt{)\ \symbol{123}}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{newOne}\hlopt{.}\hlstd{}\hlkwd{getName}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{equals}\hlstd{}\hlopt{(}\hlstd{oldOne}\hlopt{.}\hlstd{}\hlkwd{getName}\hlstd{}\hlopt{())}\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\&\&\ }\hlstd{newOne}\hlopt{.}\hlstd{}\hlkwd{getType}\hlstd{}\hlopt{().}\hlstd{}\hlkwd{equals}\hlstd{}\hlopt{(}\hlstd{oldOne}\hlopt{.}\Righttorque\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwd{getType}\hlstd{}\hlopt{()))\ \symbol{123}}\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{newOne}\hlopt{.}\hlstd{}\hlkwd{getSize}\hlstd{}\hlopt{()\ ==\ }\hlstd{oldOne}\hlopt{.}\hlstd{}\hlkwd{getSize}\hlstd{}\hlopt{()}\\
+\hllin{11\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\&\&\ }\hlstd{newOne}\hlopt{.}\hlstd{}\hlkwd{getDate}\hlstd{}\hlopt{()\ ==\ }\hlstd{oldOne}\hlopt{.}\Righttorque\\
+\hllin{12\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwd{getDate}\hlstd{}\hlopt{())\ \symbol{123}}\\
+\hllin{13\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfNew}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{newOne}\hlopt{);}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{indexOfOld}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{oldOne}\hlopt{);}\\
+\hllin{15\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{break}\hlstd{}\hlopt{;}\\
+\hllin{16\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}\ }\hlstd{}\hlkwa{else\ }\hlstd{}\hlopt{\symbol{123}}\\
+\hllin{17\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{modified}\hlopt{.}\hlstd{}\hlkwd{add}\hlstd{}\hlopt{(}\hlstd{newOne}\hlopt{);}\\
+\hllin{18\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{break}\hlstd{}\hlopt{;}\\
+\hllin{19\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{20\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{21\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{22\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{23\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{24\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

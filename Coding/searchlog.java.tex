@@ -1,0 +1,8 @@
+\noindent
+\ttfamily
+\hlstd{\hllin{1\ }SELECT\ queryword}\hlopt{,\ }\hlstd{}\hlkwd{COUNT}\hlstd{}\hlopt{({*})\ }\hlstd{AS\ count\\
+\hllin{2\ }FROM\ userquerylog\ WHERE\ querypage\ }\hlopt{=\ }\hlstd{}\hlnum{1\ }\\
+\hllin{3\ }\hlstd{GROUP\ BY\ queryword\ ORDER\ BY\ }\hlkwd{COUNT}\hlstd{}\hlopt{({*})\ }\hlstd{DESC} 
+\mbox{}
+\normalfont
+\normalsize

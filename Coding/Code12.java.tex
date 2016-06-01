@@ -1,0 +1,10 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlslc{//\ Similar\ JDBC\ code,\ NOT\ MyBatis…}\\
+\hllin{2\ }\hlstd{String\ selectPerson\ }\hlopt{=\ }\hlstd{}\hlstr{"SELECT\ {*}\ FROM\ PERSON\ WHERE\ ID=?"}\hlstd{}\hlopt{;}\\
+\hllin{3\ }\hlstd{PreparedStatement\ ps\ }\hlopt{=\ }\hlstd{conn}\hlopt{.}\hlstd{}\hlkwd{prepareStatement}\hlstd{}\hlopt{(}\hlstd{selectPerson}\hlopt{);}\\
+\hllin{4\ }\hlstd{ps}\hlopt{.}\hlstd{}\hlkwd{setInt}\hlstd{}\hlopt{(}\hlstd{}\hlnum{1}\hlstd{}\hlopt{,}\hlstd{id}\hlopt{);}\\
+\hllin{5\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

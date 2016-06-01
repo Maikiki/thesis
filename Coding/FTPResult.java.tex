@@ -1,0 +1,42 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlkwa{public\ class\ }\hlstd{FTPResults\ }\hlopt{\symbol{123}}\\
+\hllin{2\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{private\ }\hlstd{String\ name}\hlopt{,}\hlstd{type}\hlopt{,}\hlstd{size}\hlopt{,}\hlstd{date}\hlopt{,}\hlstd{path}\hlopt{,}\hlstd{url}\hlopt{;}\\
+\hllin{3\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{……\\
+\hllin{4\ }}\hlstd{\ \ \ \ }\hlstd{省略了部分getter和setter\\
+\hllin{5\ }}\hlstd{\ \ \ \ }\hlstd{……\\
+\hllin{6\ }}\hlstd{\ \ \ \ }\hlstd{}\hlslc{//将Byte转换到其他单位}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{public\ }\hlstd{}\hlkwb{void\ }\hlstd{}\hlkwd{setSize}\hlstd{}\hlopt{(}\hlstd{String\ size}\hlopt{)\ \symbol{123}}\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwb{long\ }\hlstd{numofsize\ }\hlopt{=\ }\hlstd{Long}\hlopt{.}\hlstd{}\hlkwd{valueOf}\hlstd{}\hlopt{(}\hlstd{size}\hlopt{);}\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwb{int\ }\hlstd{level\ }\hlopt{=\ }\hlstd{}\hlnum{0}\hlstd{}\hlopt{;}\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{while\ }\hlstd{}\hlopt{(}\hlstd{numofsize\ }\hlopt{\symbol{62}\ }\hlstd{}\hlnum{1023}\hlstd{}\hlopt{)\ \symbol{123}}\\
+\hllin{11\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{numofsize\ }\hlopt{=\ }\hlstd{numofsize\ }\hlopt{/\ }\hlstd{}\hlnum{1024}\hlstd{}\hlopt{;}\\
+\hllin{12\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{level}\hlopt{++;}\\
+\hllin{13\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{14\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{level\ }\hlopt{==\ }\hlstd{}\hlnum{0}\hlstd{}\hlopt{)\ \symbol{123}}\\
+\hllin{15\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{size\ }\hlopt{=\ }\hlstd{}\hlstr{"大小："}\hlstd{\ }\hlopt{+\ }\hlstd{numofsize\ }\hlopt{+\ }\hlstd{}\hlstr{"B"}\hlstd{}\hlopt{;}\\
+\hllin{16\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{17\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{level\ }\hlopt{==\ }\hlstd{}\hlnum{1}\hlstd{}\hlopt{)\ \symbol{123}}\\
+\hllin{18\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{size\ }\hlopt{=\ }\hlstd{}\hlstr{"大小："}\hlstd{\ }\hlopt{+\ }\hlstd{numofsize\ }\hlopt{+\ }\hlstd{}\hlstr{"KB"}\hlstd{}\hlopt{;}\\
+\hllin{19\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{20\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{level\ }\hlopt{==\ }\hlstd{}\hlnum{2}\hlstd{}\hlopt{)\ \symbol{123}}\\
+\hllin{21\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{size\ }\hlopt{=\ }\hlstd{}\hlstr{"大小："}\hlstd{\ }\hlopt{+\ }\hlstd{numofsize\ }\hlopt{+\ }\hlstd{}\hlstr{"MB"}\hlstd{}\hlopt{;}\\
+\hllin{22\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{23\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{level\ }\hlopt{==\ }\hlstd{}\hlnum{3}\hlstd{}\hlopt{)\ \symbol{123}}\\
+\hllin{24\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{size\ }\hlopt{=\ }\hlstd{}\hlstr{"大小："}\hlstd{\ }\hlopt{+\ }\hlstd{numofsize\ }\hlopt{+\ }\hlstd{}\hlstr{"GB"}\hlstd{}\hlopt{;}\\
+\hllin{25\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{26\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{27\ }\hlstd{}\hlslc{//构造文件URL地址}\\
+\hllin{28\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{public\ }\hlstd{}\hlkwb{void\ }\hlstd{}\hlkwd{setUrl}\hlstd{}\hlopt{(}\hlstd{String\ path}\hlopt{,\ }\hlstd{String\ name}\hlopt{,\ }\hlstd{String\ type}\hlopt{)}\Righttorque\\
+\hllin{29\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{123}}\\
+\hllin{30\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{if\ }\hlstd{}\hlopt{(}\hlstd{type}\hlopt{.}\hlstd{}\hlkwd{equals}\hlstd{}\hlopt{(}\hlstd{}\hlstr{"folder"}\hlstd{}\hlopt{))\ \symbol{123}}\\
+\hllin{31\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{url\ }\hlopt{=\ }\hlstd{path}\hlopt{+}\hlstd{name}\hlopt{+}\hlstd{}\hlstr{"/"}\hlstd{}\hlopt{;}\\
+\hllin{32\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}\ }\hlstd{}\hlkwa{else\ }\hlstd{}\hlopt{\symbol{123}}\\
+\hllin{33\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{this}\hlstd{}\hlopt{.}\hlstd{url\ }\hlopt{=\ }\hlstd{path}\hlopt{+}\hlstd{name}\hlopt{+}\hlstd{}\hlstr{"."}\hlstd{}\hlopt{+}\hlstd{type}\hlopt{;}\\
+\hllin{34\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{35\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{36\ }\hlstd{}\hlopt{\symbol{125}}\\
+\hllin{37\ }\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

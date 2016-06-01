@@ -1,0 +1,45 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlkwa{\symbol{60}?xml\ }\hlstd{}\hlkwb{version}\hlstd{=}\hlstr{"1.0"}\hlstd{\ }\hlkwb{encoding}\hlstd{=}\hlstr{"UTF{-}8"}\hlstd{\ }\hlkwa{?\symbol{62}}\\
+\hllin{2\ }\hlstd{}\hlkwa{\symbol{60}!DOCTYPE\ }\hlstd{configuration\\
+\hllin{3\ }}\hlstd{\ \ }\hlstd{PUBLIC\ }\hlstr{"{-}//mybatis.org//DTD\ Config\ 3.0//EN"}\hlstd{\\
+\hllin{4\ }}\hlstd{\ \ }\hlstd{}\hlstr{"http://mybatis.org/dtd/mybatis{-}3{-}config.dtd"}\hlstd{}\hlkwa{\symbol{62}}\\
+\hllin{5\ }\hlstd{}\hlkwa{\symbol{60}configuration\symbol{62}}\\
+\hllin{6\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlkwa{\symbol{60}environments\ }\hlstd{}\hlkwb{default}\hlstd{=}\hlstr{"development"}\hlstd{}\hlkwa{\symbol{62}}\\
+\hllin{7\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}environment\ }\hlstd{}\hlkwb{id}\hlstd{=}\hlstr{"development"}\hlstd{}\hlkwa{\symbol{62}}\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ \ \ }\hlstd{}\hlkwa{\symbol{60}transactionManager\ }\hlstd{}\hlkwb{type}\hlstd{=}\hlstr{"JDBC"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ \ \ \ \ }\hlstd{}\hlkwa{\symbol{60}dataSource\ }\hlstd{}\hlkwb{type}\hlstd{=}\hlstr{"POOLED"}\hlstd{}\hlkwa{\symbol{62}}\\
+\hllin{10\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{\symbol{60}property\ }\hlstd{}\hlkwb{name}\hlstd{=}\hlstr{"driver"}\hlstd{\ }\hlkwb{value}\hlstd{=}\hlstr{"com.mysql.jdbc.}\Righttorque\\
+\hllin{11\ }\hlstr{}\hlstd{\ \ \ \ \ \ \ \ \ \ }\hlstr{Driver"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{12\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{\symbol{60}property\ }\hlstd{}\hlkwb{name}\hlstd{=}\hlstr{"url"}\hlstd{\ }\hlkwb{value}\hlstd{=}\hlstr{"jdbc:mysql://localhost:}\Righttorque\\
+\hllin{13\ }\hlstr{}\hlstd{\ \ \ \ \ \ \ \ \ \ }\hlstr{3306/test?useUnicode=true\&amp;}\Righttorque\\
+\hllin{14\ }\hlstr{}\hlstd{\ \ \ \ \ \ \ \ \ \ }\hlstr{characterEncoding=UTF8"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{15\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{\symbol{60}property\ }\hlstd{}\hlkwb{name}\hlstd{=}\hlstr{"username"}\hlstd{\ }\hlkwb{value}\hlstd{=}\hlstr{"root"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{16\ }\hlstd{}\hlstd{\ \ \ \ \ \ \ \ \ \ }\hlstd{}\hlkwa{\symbol{60}property\ }\hlstd{}\hlkwb{name}\hlstd{=}\hlstr{"password"}\hlstd{\ }\hlkwb{value}\hlstd{=}\hlstr{"940920"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{17\ }\hlstd{}\hlstd{\ \ \ \ \ \ }\hlstd{}\hlkwa{\symbol{60}/dataSource\symbol{62}}\\
+\hllin{18\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}/environment\symbol{62}}\\
+\hllin{19\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlkwa{\symbol{60}/environments\symbol{62}}\\
+\hllin{20\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlkwa{\symbol{60}mappers\symbol{62}}\\
+\hllin{21\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}mapper\ }\Righttorque\\
+\hllin{22\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwb{resource}\hlstd{=}\hlstr{"ftpSearcher/mybatis/persistence/FeedbackMapper.}\Righttorque\\
+\hllin{23\ }\hlstr{}\hlstd{\ \ \ \ }\hlstr{xml"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{24\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}mapper\ }\Righttorque\\
+\hllin{25\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwb{resource}\hlstd{=}\hlstr{"ftpSearcher/mybatis/persistence/FTPServerMapper}\Righttorque\\
+\hllin{26\ }\hlstr{}\hlstd{\ \ \ \ }\hlstr{.xml"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{27\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}mapper\ }\Righttorque\\
+\hllin{28\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwb{resource}\hlstd{=}\hlstr{"ftpSearcher/mybatis/persistence/UserQueryLogMap}\Righttorque\\
+\hllin{29\ }\hlstr{}\hlstd{\ \ \ \ }\hlstr{per.xml"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{30\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}mapper\ }\Righttorque\\
+\hllin{31\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwb{resource}\hlstd{=}\hlstr{"ftpSearcher/mybatis/persistence/PathPriorityMap}\Righttorque\\
+\hllin{32\ }\hlstr{}\hlstd{\ \ \ \ }\hlstr{per.xml"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{33\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}mapper\ }\Righttorque\\
+\hllin{34\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwb{resource}\hlstd{=}\hlstr{"ftpSearcher/mybatis/persistence/QueryCountMappe}\Righttorque\\
+\hllin{35\ }\hlstr{}\hlstd{\ \ \ \ }\hlstr{r.xml"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{36\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwa{\symbol{60}mapper\ }\Righttorque\\
+\hllin{37\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{}\hlkwb{resource}\hlstd{=}\hlstr{"ftpSearcher/mybatis/persistence/FTPSpiderLogMap}\Righttorque\\
+\hllin{38\ }\hlstr{}\hlstd{\ \ \ \ }\hlstr{per.xml"}\hlstd{}\hlkwa{/\symbol{62}}\\
+\hllin{39\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlkwa{\symbol{60}/mappers\symbol{62}}\\
+\hllin{40\ }\hlstd{}\hlkwa{\symbol{60}/configuration\symbol{62}}\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

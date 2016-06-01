@@ -1,0 +1,88 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{系统需求分析及总体设计}
+\section{需求分析}
+FTP搜索引擎实现目标就是满足Internet用户的需求，系统以B/S结构为基础，用户通过使用Web浏览器访问系统，方便快捷的利用系统各个模块，获取到需要的特定资源。一般校内搜索的主要内容基本上以课件、教学、音乐、视频、软件等内容为主。搜索引擎需要对中英文混合的文件名有较好的分词支持,并支持模糊搜索。对于FTP搜索引擎而言，用户主要分为两类：Web前端的一般用户和后台的管理员。
+\section{系统设计原则}
+1.首先要完成需求分析中提到的功能并保证整个系统的完整性和一致性。
+
+2.增强系统的可维护性。
+
+3.降低系统各模块间的耦合度。
+
+4.提高系统性能。
+\section{功能性需求}
+Web前端部分的用例图如图\ref{image015}所示。Web前端的一般用户，可以通过Web前端网页输入查询关键词，进行信息的搜索，从而通过FTP搜索引擎快速定位到指定的资源。系统同时提供高级搜索，能限定搜索结果的范围，如文件大小、日期、所在服务器等，使得搜索能够更精确的定位到所需的资源上。用户还可以为FTP搜索引擎推荐FTP服务器，这样，搜索引擎就能够更好的对更多的FTP服务器进行索引。系统还应提供用户反馈功能，接受用户意见，以便更好的改进用户体验。
+\newpage
+\pic[htbp]{Web前端用例图}{width=0.4\textwidth}{image015}
+
+对于后台管理系统，如图\ref{image016}所示。首先，它必须有一个用于身份认证的登陆过程，以防止系统的相关设置被非法修改。在登陆之后，管理员可以通过后台管理系统来了解并设置当前系统的配置，系统的配置主要包括Lucene索引存放的目录、FTP信息搜集模块所搜集信息存放的目录等的配置工作；能够管理已经搜集FTP服务器信息及用户反馈。
+
+\pic[htpb]{后台管理系统用例图}{width=0.6\textwidth}{image016}
+
+\section{性能需求}
+1.搜索引擎应该有较好的跨平台性，能够在不同平台的服务器上较为良好的运行。
+
+2.在短时间内快速返回搜索结果，并有较好的相关性排序。
+
+3.需要具有清晰友好的用户界面，使之简单易用。
+\section{系统核心功能描述}
+如图\ref{image018}所示，整个FTP搜索引擎的核心架构部分——Lucene搜索的实现由四个部分构成：数据搜集、Web前端查询、FTP文件信息对比、Lucene。后端数据搜集使用Apache Commons Net™ 工具包编写的搜集模块来遍历FTP服务器的指定目录，并将遍历的结果以文本的形式存储在计算机文件系统当中。对于同一个FTP服务器不同时间所搜集的文件信息，对新旧两个不同的文件信息文本进行对比，得到新旧两次文件信息不同之处，用于对Lucene索引的增量式更新。
+
+而后，数据索引模块从存储的FTP文件信息文本中获取文件信息，在进行分析之后，建立相关Lucene文档实例，存入索引当中，为用户的搜索提供基础。
+
+用户的查询过程将在Struts 2框架下完成，用户的搜索请求，经由定义在Struts2中的相关action来完成一系列Lucene的相关操作后为用户返回想要的结果，这些操作包括构建Query查询对象、使用IndexSearcher进行查询、构建查询结果集。
+
+\pic[htbp]{核心功能架构图}{width=0.8\textwidth}{image018}
+
+\section{数据库设计}
+系统采用MySQL数据库存储FTP服务器信息、用户反馈、搜集模块日志、用户查询日志、查询统计等信息。
+图\ref{image020} 为整个数据库的E-R图，一个FTP服务器拥有多个不同时间的搜集日志，FTP信息文本记录了FTP服务器指定目录的完整结构及文件信息。用户反馈存储了用户通过Web前端输入的用户反馈信息。用户查询日志简单记录了用户每次搜索行为。查询统计记录了从FTP搜索日志中统计出各个关键词被搜索的次数。
+\newpage
+\pic[htbp]{E-R图}{width=0.7\textwidth}{image020}
+
+下面的表格给出了数据库中各个表的详细逻辑结构设计（注：PK：primary key（主键）；FK：foreign key（外键））
+\threelinetable[htpb]{table2}{0.8\textwidth}{lccX}{FTP服务器信息（ftpserver）表}{列名&类型&约束&备注\\	}{
+	id & int & PK & 每个FTP服务器在数据库中的唯一标识。\\
+	domain & varchar(100) & 无 & FTP服务器的域名，域名与IP不能同时为空。\\
+	ipv4 & varchar(15) & 无 & FTP服务器的IP，域名与IP不能同时为空。\\
+	port & int & NOT NULL & 服务器所开放的端口，默认值：21。\\
+	encoding & varchar(20) & NOT NULL &	确保程序能正确编码FTP服务器所返回的目录信息。默认值：GBK。\\
+	verify & char(1) & NOT NULL & 服务器验证信息，默认值：0，当verify=0时，说明其未被验证。\\
+	submittime & datetime & 无 & 用户提交FTP服务器信息的时间。\\
+	description & text & 无 & FTP所包含的内容的简介。\\
+	indexfile & int & FK & 当前Lucene索引的FTP信息文件。\\
+}{}
+\threelinetable[htbp]{table3}{0.8\textwidth}{lccX}{用户反馈信息（Feedback）表}{列名&类型&约束&备注\\}
+{
+	id & int & PK & 每条反馈的唯一标识。\\
+	username & varchar(20) & NOT NULL & 默认值：匿名用户。\\
+	contact & varchar(255) & 无 & 联系方式，提供更一步交流的可能。\\
+	comment & text & NOT NULL & 评论内容。\\
+	commentdate & datetime & NOT NULL & 评论提交时间。\\
+}{}
+\threelinetable[htbp]{table4}{0.8\textwidth}{lccX}{FTP搜集日志（ftpspiderlog）表}{列名&类型&约束&备注\\}
+{
+	id & int & PK & 每条反馈的唯一标识。\\
+	ftpid & int & FK & 日志所对应的FTP服务器。\\
+	starttime & datetime & NOT NULL & 搜集开始时间。\\
+	finishtime & datetime & NOT NULL & 完成时间。\\
+	cost & int & NOT NULL & 耗时，单位：秒。\\
+	ftpinfo	& varchar(255) & NOT NULL & 本次搜集对应的存储文本。\\
+
+}{}
+\threelinetable[htbp]{table5}{0.8\textwidth}{lccX}{用户查询日志（userquerylog）表}{列名&类型&约束&备注\\}
+{
+	id & int & PK & 每条反馈的唯一标识。\\
+	querytime & datetime & NOT NULL & 查询发生的时间。\\
+    queryword & varchar(255) & NOT NULL & 查询的关键词。\\
+    querypage & int & NOT NULL & 用户所处的页面。\\
+}{}
+\threelinetable[htbp]{table6}{0.8\textwidth}{lccX}{查询统计（querycount）表}{列名&类型&约束&备注\\}
+{
+	id & int & PK & 每条反馈的唯一标识。\\
+	queryword & varchar(255) & NOT NULL & 查询的关键词。\\
+    count & int & NOT NULL & 被查询的次数。\\
+}{}
+
+\FloatBarrier

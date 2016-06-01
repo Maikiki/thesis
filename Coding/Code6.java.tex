@@ -1,0 +1,15 @@
+\noindent
+\ttfamily
+\hlstd{}\hllin{1\ }\hlopt{\symbol{60}}\hlstd{?xml\ version}\hlopt{=}\hlstd{}\hlstr{"1.0"}\hlstd{\ encoding}\hlopt{=}\hlstd{}\hlstr{"UTF{-}8"}\hlstd{\ ?}\hlopt{\symbol{62}}\\
+\hllin{2\ }\hlstd{}\hlopt{\symbol{60}!}\hlstd{DOCTYPE\ mapper\\
+\hllin{3\ }}\hlstd{\ \ }\hlstd{PUBLIC\ }\hlstr{"{-}//mybatis.org//DTD\ Mapper\ 3.0//EN"}\hlstd{\\
+\hllin{4\ }}\hlstd{\ \ }\hlstd{}\hlstr{"http://mybatis.org/dtd/mybatis{-}3{-}mapper.dtd"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{5\ }\hlstd{}\hlopt{\symbol{60}}\hlstd{mapper\ namespace}\hlopt{=}\hlstd{}\hlstr{"org.mybatis.example.BlogMapper"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{6\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlopt{\symbol{60}}\hlstd{select\ id}\hlopt{=}\hlstd{}\hlstr{"selectBlog"}\hlstd{\ parameterType}\hlopt{=}\hlstd{}\hlstr{"int"}\hlstd{\ \Righttorque\\
+\hllin{7\ }}\hlstd{\ \ }\hlstd{resultType}\hlopt{=}\hlstd{}\hlstr{"Blog"}\hlstd{}\hlopt{\symbol{62}}\\
+\hllin{8\ }\hlstd{}\hlstd{\ \ \ \ }\hlstd{select\ }\hlopt{{*}\ }\hlstd{from\ Blog\ where\ id\ }\hlopt{=\ }\hlstd{\#}\hlopt{\symbol{123}}\hlstd{id}\hlopt{\symbol{125}}\\
+\hllin{9\ }\hlstd{}\hlstd{\ \ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{select}\hlopt{\symbol{62}}\\
+\hllin{10\ }\hlstd{}\hlopt{\symbol{60}/}\hlstd{mapper}\hlopt{\symbol{62}}\hlstd{} 
+\mbox{}
+\normalfont
+\normalsize

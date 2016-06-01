@@ -1,0 +1,357 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{系统详细设计与实现}
+
+\section{数据搜集模块}
+数据搜集模块用于访问FTP服务器并获取FTP服务器上的所有文件信息。并将文件信息以文本的形式存储在本地的磁盘上，以供其他需要文件信息文本的模块使用。整个模块被封装在FTPSpider类中。FTPSpider类的结构如下：
+
+\input{Coding/FTPSpider.java.tex}
+
+\subsection{数据存储格式}
+对于从FTP搜集下来的目录信息及文件信息，采用如表\ref{table1}所示规则存储：
+
+\pictable[htbp]{数据存储格式表}{width=0.8\textwidth}{table1}
+
+目录行：以“/”开头，第一个“/”代表FTP服务器根目录。
+文件信息行：以数字开始，格式为“文件修改时间/文件类型/文件大小/文件名”。文件修改日期是以文件修改时间减去1970年1月1日00：00的时差，精确到秒。对于一般的文件来说，其类型为其文件名的后缀名，即最后一个“.”后的字符串。例如文件名“新建文本文档.txt”，它的类型为txt。但是最后一个“.”的位置不能是文件名的第一个字符，如“.classpath”这个文件名，它的文件类型并不是classpath。文件大小的单位为Byte。在本系统中，文件夹也被看作一种文件，它是类型为folder，大小为0。
+图\ref{image021}给出了一个FTP信息文本的实例的一部分，它包括了上面所说的全部定义：
+\newpage
+\pic[ht]{数据存储实例}{width=0.6\textwidth}{image021}
+
+\subsection{关键类及关键方法介绍}
+在本系统中，使用FTPClient类的实例ftp来完成所有与FTP服务器的交互工作，这些工作包括：连接并登陆匿名的FTP服务器、改变当前FTP会话的工作目录、获取工作目录下的文件信息。
+这些工作的主要实现方法如下，他们都由FTPClient类来提供：
+
+1. 连接匿名的FTP服务器：connect(server, port)，该方法需要提供服务器的域名或者IP作为server参数，提供所开放的FTP端口号作为port参数。
+
+2. 登陆匿名的FTP服务器：login(String username, String password)，需提供用户名与密码来完成FTP服务器的登陆工作，由于本系统只对匿名的FTP服务器检索，所以在这里，username为“anonymous”，password为笔者的邮箱“269504518\\@qq.com”。
+
+3. 改变当前FTP会话的工作目录：changeWorkingDirectory(String pathname)，每当获取并完成对一个工作目录下的文件信息的存储后，需要使用该方法来改变当前工作目录，从而能够获取其他工作目录的信息，以完成对FTP指定目录遍历的目的。
+
+4. 退出FTP服务器：disconnect()，当搜集模块完成了遍历任务后，用它来释放FTP连接。
+\subsection{处理流程及实现}
+整个搜集的过程如图\ref{image022}所示。pathQueue是一个String队列，里面存储着提供给changeWorkingDirectory(String pathname)使用的pathname，对于一个文件夹类型的文件，它自身所在的目录加上它的文件名就构成了新的pathname。
+
+\pic[!htbp]{FTP数据搜集流程图}{width=0.6\textwidth}{image022}
+
+\section{文件信息对比模块}
+对于一个在FTP服务器的文件，文件的文件大小或修改日期发生变化时，称该文件被更改了。FTP服务器随时都有可能更改、删除某个文件，或者添加新的文件。文件信息对比模块将新搜集的文件信息文本与当前被Lucene索引的文件信息文本进行对比，找出FTP服务器文件信息的变化之处，为索引模块更新索引提供依据。文件信息对比模块所有的操作被封装在FileComparer类中，它与其他外部类的关系如图\ref{image023}所示。
+
+\pic[htbp]{FileComparer类图}{width=0.8\textwidth}{image023}
+
+\subsection{相关数据结构}
+FileInfo类用于4.1.1数据存储格式中文件信息的实例化，每一条文件信息构建一个FileInfo实例。
+Files类将工作目录和目录下的文件信息结合在一起，他包含path，以及在这个工作目录下的所有文件信息。这样就很好的与4.1.1数据存储格式对应了起来。
+由于ArrayList在遍历时，其中的元素不能删除，故用Delete\-Index记录每个工作路径下需要被删除的文件信息。最后统一删除。
+\subsection{处理流程及实现}
+对比流程如图\ref{image026}所示。新搜集的FTP文件信息文本被读取并构建为Files实例，存入newFiles数组列表；之前被Lucene 索引的FTP文件信息文本被读取并构建为\\Files实例，存入oldFile数组列表，整个处理流程通过对比找出并删除两个数组中相同的FileInfo实例，即删除FTP中文件信息没有变化的文件。在完成整个处理流程后，newFiles数组列表中剩下的元素就是FTP服务器上新添加的文件。oldFiles中剩下的元素就是FTP服务器上被删除的文件。
+\newpage
+\pic[htbp]{文件信息对比模块流程图}{width=0.6\textwidth}{image026}
+
+关键代码如下：
+
+\input{Coding/FileCompare.java.tex}
+
+图\ref{image028}为图\ref{image026}中“对比目录下的文件信息”过程的细化。这个过程被封装在Files类的compare()方法中。
+
+\pic[htbp]{文件信息对比流程图}{width=0.8\textwidth}{image028}
+
+关键代码如下：
+
+\input{Coding/Compare.java.tex}
+
+\subsection{对比结果存储格式}
+对比结果文本分为4部分，如表\ref{table2}所示，目录行及文件信息行的定义与4.1.1中一致。
+文件头部：指明了文件信息所属的服务器及该服务器所开放的端口。
+被删除的条目：FTP服务器上被删除的文件，被索引模块用于删除Lucene索引中过时的条目。
+新添加的条目：FTP服务器上新添加的文件，被索引模块用于向lucene索引添加新的条目。
+发生变化的条目：可用于统计FTP每个目录发生变化的次数。
+\newpage
+\pictable[htbp]{文件信息对比结果存储格式表}{width=0.8\textwidth}{table2}
+
+图\ref{image029}给出了一个FTP信息文本的实例的一部分，它包括了上面所说的全部定义。
+
+\pic[!htbp]{文件信息对比结果实例}{width=0.4\textwidth}{image029}
+
+\section{数据索引模块}
+数据索引模块将执行Lucene的索引过程，对搜集到的FTP文件信息文本进行索引。数据只有经过索引之后才能够被用于搜索。
+\subsection{关键类及关键方法介绍}
+IndexWriter类：IndexWriter类是org.apache.lucene.index包中的类，他主要负责创建并维护一个lucene索引。在数据索引模块中，使用indexWriter实例的\\add\-Docu\-ment\-(Document doc)方法来将相关数据构建成的Document实例添加至Lucene索引中。
+\subsection{构建IndexWriter实例}
+构建indexWriter实例需要经过以下的过程：
+
+1.指定lucene索引的存放位置。
+
+需要实例化一个Directory对象来完成这一工作：Directory dir = FSDirectory.\\open(new File(configer.getIndexDir()))其中，路径由从configer实例的getIndexDir()方法给出，在4.7节将给出configer的具体设计。
+
+2. 构建IndexWriterConfig实例。
+
+IndexWriterConfig的实例用于修改IndexWriter的一切配置，以使得新建的Index\-Writer能够符合需求。
+例如：IndexWriterConfig iwconf = new IndexWriter\-Config\-(Version.\-LUCENE\_35, new Smart\-Chinese\-Analyzer(Version.LUCENE\_35));在构建Index\-Writer\-Config实例，需要确认使用的Lucene的版本号，以及Index\-Writer默认的分析器是什么。在例子中，使用的Lucene版本为3.5,使用的是SmartChineseAnalyzer分析器。
+
+3. 构建IndexWriter实例。
+
+在完成1、2两个步操作后，利用1、2所构建的对象实例来构建出indexWriter实例，例如：indexWriter = new IndexWriter(dir, iwconf)。
+\subsection{FTP搜索引擎的Lucene Document的结构及构建}
+在FTP搜索引擎中，Lucene的Document实例用于存储文件信息，一个document实例对应一个文件的文件信息。结构如表\ref{table3}所示。
+\newpage
+\pictable[ht]{FTP搜索引擎Lucene Document结构}{width=0.8\textwidth}{table3}
+
+Document实例构建过程如下：
+
+1. 使用构造方法，构建一个Document实例，例如：Document doc = new Document();
+
+2. 使用Document实例的add(Fieldable field)方法向Document实例中添加实现了Fieldable接口的实例。
+\subsection{实现了Fieldable接口的类的构造方法解释}
+对于字符串类型的索引，使用Field(String name, String value, Field.Store store, Field.Index index)来构建。各参数的含义见表\ref{table4}。
+
+\pictable[ht]{Field实例构造方法个参数意义}{width=0.8\textwidth}{table4}
+\newpage
+对于数字型的索引，使用NumericField(String name, Field.Store store, boolean index)来构建，各个参数的含义见表\ref{table5}。
+
+\pictable[ht]{NumericField实例构造方法各参数意义}{width=0.8\textwidth}{table5}
+
+当完成了NumericField实例的构造后，还需要调用其实例的一些方法，初始化实例。使用如表\ref{table6}所示的方法即可。
+
+\pictable[htbp]{NumericField实例初始化数值的相关方法}{width=0.8\textwidth}{table6}
+
+\subsection{数据索引流程}
+整个数据索引流程如图\ref{image030}所示。索引模块先读取FTP文件信息文本中的FTP服务器信息及文件信息，利用文件信息建立Lucene文档并将其添加到Lucene索引。
+\newpage
+\pic[ht]{数据索引流程图}{width=0.6\textwidth}{image030}
+
+将文件信息写入索引的关键代码如下：
+
+\input{Coding/index.java.tex}
+
+\subsection{索引中文档的更新}
+对于Lucene来说，它只能够删除整个旧的文档，然后向索引添加新文档。Index\-Writer中的update\-Document(Term,Document)方法是通过调用deleteDocuments(Term)和\\add\-Document(Document)方法来实现的。所以在本系统中，我们采用如下方法更新索引中的文档：
+
+1.使用IndexWriter的deleteDocuments(Query query);删除指定FTP服务器的所有在索引中的文件信息。
+
+2.调用4.3.5的索引过程，将新的FTP服务器文件信息添加到索引中。
+\section{搜索模块}
+给用户提供搜索功能。所有的搜索操作的被封装在FTPSearcher类中。
+\subsection{Levenshtein Distance算法设计}
+算法设计如下：
+
+Step 1
+
+Set n to be the length of s.Set m to be the length of t.
+
+If n = 0, return m and exit.If m = 0, return n and exit.
+
+Construct a matrix containing 0..m rows and 0..n columns.
+
+Step 2
+
+Initialize the first row to 0..n.
+
+Initialize the first column to 0..m.
+
+Step 3 
+
+Examine each character of s (i from 1 to n).
+
+Step 4 
+
+Examine each character of t (j from 1 to m).
+
+Step 5 
+
+If s[i] equals t[j], the cost is 0.
+
+If s[i] doesn’t equal t[j], the cost is 1.
+
+Step 6
+
+Set cell d[I,j] of the matrix equal to the minimum of:
+
+a. The cell immediately above plus 1: d[i-1,j] + 1.
+
+b. The cell immediately to the left plus 1: d[i,j-1] + 1.
+S
+c. The cell diagonally above and to the left plus the cost: d[i-1,j-1] + cost.
+
+Step 7
+
+After the iteration steps (3, 4, 5, 6) are complete, the distance is found in cell d[n,m]. 
+
+1、  得到源串s长度n与目标串t的长度m，如果一方为的长度0，则返回另一方的长度。
+
+2、  初始化(n+1)*(m+1)的矩阵d，第一行第一列的值为0增至对应的长度。
+
+3、  遍历数组中的每一个字符(i,j从1开始)。如果s[i]与t[j]的值相等，cost值为0，否则为1。D[i][j]的值为d[i-1,j] + 1(左边的值加1)、d[i,j-1] + 1.(上边的值加1)、d[i-1,j-1] + cost (斜上角的值加cost) 中的最小者。
+
+4、  等第三步遍历完后，右下角d[n,m]的值就为两个字符串的LD距离，如图\ref{LD1}所示。
+\newpage
+\pic[htbp]{LD算法示意图}{width=0.6\textwidth}{LD1}
+
+如果单纯靠编辑距离来匹配的话，搜索结果常常比较生硬，所以进行如下处理，得到distance之后，计算出匹配得分score，公式如下：
+
+\[score=1-\frac{distance}{min(m,n)}\] 
+
+将score作为一个变参数，在使用函数的时候传入，可比较灵活的定义匹配的模糊程度，简单地说score越大这两个项之间的相关性越大，score越小，相关性越小。
+
+\subsection{关键类及关键方法介绍}
+IndexReader类：这是一种抽象类，为访问Lucene索引提供了一个接口，任何对索引的搜索操作都需要通过IndexReader类的这个接口。它为IndexSearcher的搜索提供基础。使用该类的静态方法IndexReader.open(Directory dir)来获取IndexReader\\的实例，和4.3.2中构建IndexWriter的对象实例一样，它同样需要指定lucene索引的存放位置。
+
+IndexSearcher类：该类是搜索索引的门户，所有的搜索都通过IndexSearcher的实例来完成。当构建好了IndexReader对象实例后，使用IndexSearcher带有参数的构造方法IndexSearcher(reader)来构建IndexSearcher对象实例，这个参数是Index\-Reader的对象实例。
+
+QueryParser类：将用户输入的查询语句解析为Query对象，使得IndexSearcher的实例能够通过Query对象完成查询任务。通过QueryParser的parse(String query)方法来解析一个查询字符串并返回一个Query对象。对于构建QueryParser类的对象实例，使用其带参数的构造方法：QueryParser(Version matchVersion, String fieldname, Analyzer defaultAnalyzer)。参数含义见表\ref{table7}。
+
+\pictable[htbp]{QueryParser构造方法参数含义}{width=0.8\textwidth}{table7}
+
+TopDocs类：存储IndexSearcher实例返回的结果。
+ScoreDoc类：提供对TopDocs中每条搜索结果的访问接口。
+在构建了IndexSearcher的对象实例后，通过调用它的search\\(Query query, int n)方法来进行搜索了，其中，第一个参数是Query的对象实例，第二个参数限制返回结果的数量，n大于0，也就是说search方法返回的结果数会小于等于n，这n个结果是与查询条件相关性最大的前n个。执行结果会返回一个TopDocs对象。在TopDocs.totalHits中存放着实际符合要求的文档的数量。当希望能够让Index\-Searcher实例返回所有符合条件的文档时，可以运用如下编程方式来实现：
+
+\input{Coding/back.java.tex}
+
+第一次调用search()方法用于获知共有多少个文档符合查询语句的要求，由于search(Query query, int n)中的参数n需要大于0，故需要进行判断hits.totalHits是否大于0，当hits.totalHits 等于0时，search方法会抛出错误。
+
+返回的TopDocs对象包含了一个ScoreDoc数组，ScoreDoc数组中是搜索结果对应文档的文档ID。使用IndexSearcher的doc(int docID)方法，就能把结果文档从Luc\-ene索引目录中取出。
+
+\subsection{处理流程及实现}
+\newpage
+在本系统中，整个搜索过程如图\ref{image032}所示，
+
+\pic[htpb]{搜索流程图}{width=0.5\textwidth}{image032}
+
+在流程的最后会生成个FTPResults类的数组，该数组用于存储搜索结果，用于向Web前端输出。其结构如下：
+
+\input{Coding/FTPResult.java.tex}
+
+\section{基于MyBatis的数据库操作}
+\subsection{MyBatis程序基本结构}
+首先，Mybatis需要有一个全局配置文件。在全局配置文件中需要配置的信息主要包括如下几个方面\citeup{10}：
+
+Properties：用于提供一系列的键值对组成的属性信息，该属性信息可以用于整个配置文件中。
+
+Settings：用于设置 MyBatis 的运行时方式，比如是否启用延迟加载等。
+
+typeAliases ：为 Java 类型指定别名，可以在 XML 文件中用别名取代 Java 类的全限定名。
+
+typeHandlers：在 MyBatis 通过 PreparedStatement 为占位符设置值，或者从 ResultSet 取出值时，特定类型的类型处理器会被执行。
+
+objectFactory：MyBatis 通过 ObjectFactory 来创建结果对象。可以通过继承 DefaultObjectFactory 来实现自己的 ObjectFactory 类。
+
+Plugins：用于配置一系列拦截器，用于拦截映射 SQL 语句的执行。可以通过实现 Interceptor 接口来实现自己的拦截器。
+
+Environments：用于配置数据源信息，包括连接池、事务属性等。
+
+Mappers：程序中所有用到的 SQL 映射文件都在这里列出，这些映射 SQL 都被 MyBatis 管理。
+
+上面提及的大多数元素都不是必需的，通常 MyBatis 会为没有显式设置的元素提供缺省值。下面给出一个简单的全局配置代码：
+
+\input{Coding/Mybatisconfig.xml.tex}
+
+有了这些信息，MyBatis\citeup{11}便能够和数据库建立连接，并应用给定的连接池信息和事务属性。MyBatis 封装了这些操作，最终暴露一个 SqlSessionFactory 实例供开发者使用，从名字可以看出来，这是一个创建 SqlSession 的工厂类，通过 SqlSession 实例，开发者能够直接进行业务逻辑的操作，而不需要重复编写 JDBC 相关的样板代码。根据全局配置文件生成SqlSession的代码如下：
+
+\input{Coding/Sqlsession.java.tex}
+
+可以把上面的代码看做是MyBatis创建 SqlSession 的样板代码。其中第二行代码在类路径上加载配置文件，Resources 是 MyBatis 提供的一个工具类，它用于简化资源文件的加载，它可以访问各种路径的文件，不过最常用的还是示例中这种基于类路径的表示方式。
+
+在完成全局配置文件，并通过 MyBatis 获得 SqlSession 对象之后，便可以执行数据访问操作了。对于 MyBatis 而言，要执行的操作其实就是在映射文件中配置的 SQL 语句。配置代码如下：
+
+\input{Coding/SQL.java.tex}
+
+在 MyBatis 中，namespace使得映射文件与接口绑定变得非常自然。下面将展示，XML映射文件与接口绑定之间的关系，与上述代码对应接口的定义代码如下：
+
+\input{Coding/FeedbackMapper.java.tex}
+
+表\ref{table8}给出了XML映射文件与接口直接的对应关系，以insertFeedback和getAll\-Feedback属性为例\citeup{10}。
+
+\pictable[htbp]{XML映射与接口对应关系}{width=0.8\textwidth}{table8}
+
+在MyBatis框架中，只需要声明而不需要实现接口。完成了映射文件配置SQL语句及接口定义后，就可以用Mybatis的方式来进行相关数据库操作了。一个删除用户反馈的示例代码如下：
+
+\input{Coding/delete.java.tex}
+
+在进行了删除操作之后一定要使用session.commit()将事务提交到数据库，否则删除、插入、修改这类操作是无法生效的。完成操作后，使用session.close()关闭与数据库的连接。
+\subsection{本系统中的数据库操作}
+下面列举了一些系统中对数据库的操作。
+
+1. FTP服务器表相关操作：
+
+\input{Coding/FTPaction.java.tex}
+
+2. 用户反馈表相关操作：
+
+\input{Coding/Feedbackaction.java.tex}
+
+3. 用户搜索日志统计：SELECT queryword, COUNT(*) AS count
+		             FROM userquerylog WHERE querypage = 1 
+		             GROUP BY queryword ORDER BY COUNT(*) DESC
+\section{基于JDOM的XML文档操作}
+\subsection{关键类及关键方法介绍}
+在本系统中，使用 SAXBuilder 对ftpSearcher-config.xml 文件以SAX的方式进行语法分析，构建JDOM的Document实例。 Document实例是执行XML文档相关操作的基础。下面是构建JDOM文档的过程：
+
+\input{Coding/Jdom.java.tex}
+
+在构建好Document实例后，就能通过JDOM提供的方法获取XML里中所需要的内容了。
+
+\subsection{FTP搜索引擎配置文件结构及文档操作}
+FTP搜索引擎的配置代码如下：
+
+\input{Coding/FTPconfig.java.tex}
+
+fileInfoDir：存放FTP服务器搜集模块所搜集的FTP文件信息文本。
+
+indexDir：存放Lucene索引的目录。
+
+logDir:存放对比模块产生的文件对比文本。
+
+username：后台管理系统用户名字符串的MD5值。
+
+password：后台管理密码字符串的MD5值。
+
+存放MD5值相较于原始值来说，更为安全，但是如果密码的原始字符串是常见密码，MD5值也并不安全。可以通过暴力破解来非法登陆系统。
+
+1. 获取内容
+
+以4.6.1中构建好的Document对象实例doc为基础，获取XML文件中的内容需要通过一下的方法：
+
+(1)	使用Document类的getRootElement()方法获取了XML的根元素的Element对象实例。
+
+(2)	Element类的getChildText("子元素名")来获取子元素的内容。
+
+具体的核心代码如下：
+
+\input{Coding/login.java.tex}
+
+2. 修改内容
+
+修改XML文件需要使用以下的类及其方法。
+
+(1)使用root的root.getChild("子元素名")获取子元素的Element实例，如Element eIndexDir = root.getChild("indexDir")。
+
+(2)使用Element类的setText(字符串)方法修改元素内容，如eIndexDir.setText(indexDir)。
+
+(3)使用XMLOutputter().outputString(doc)方法将Document对象输出为一个字符串。
+
+(4)创建FileWriter对象实例。使用FileWriter类的write(字符串)方法把修改结果写入文件。
+
+具体的核心代码如下：
+
+\input{Coding/modify.java.tex}
+
+\section{用户搜索日志记录}
+\subsection{用户搜索日志的意义}
+单个来看，每条搜索日志都是平淡无奇的，但是搜集每个用户、每次查询、每次应答的日志，将它们放在一起，就会成为一个内含丰富、深藏玄机的资料集。例如将一个用户在一个时间段内，针对某个搜索目标所进行的一系列查询和点击记录放在一块，就可以大致推测，对这样的用户、这样的需求，哪些结果是他们希望看到的，从而优化结果的排序。此外，综合众多用户的查询日志，可以知道哪些查询词是用户搜得最多的，哪些查询词是某一段时间内搜索量增长最快的，从而分析搜索的趋势。例如百度风云榜（http://top.baidu.com/），某个时期，百度用户最为关心的、搜索频率最高的事件，都在榜单里有所体现。榜单的生成就离不开千千万万平凡的搜索日志。同样，Google也有类似的资料发布在互联网上，在http://www.google.com/intl/en/press/zeitgeist/index.html可以看到相关的内容，顺便领略一下，在Google的用户群中，大家关心的是什么内容。
+
+这些只是日志中所体现的非常基本的内在信息。对搜索引擎日志的分析，还能帮助开发者理解用户的查询意图、理解搜索结果的内容、评判搜索结果质量、改进搜索系统等一系列有用的事情，可以为人们不断改进获取有效信息的便捷性提供有力的帮助。
+
+\subsection{记录用户搜索的方法}
+在本系统中，用户搜索日志记录的模块作为一个Struts2架构中的拦截器来完成工作。原理如图\ref{image034}所示：
+
+\pic[htpb]{拦截器原理}{width=0.8\textwidth}{image034}
+
+拦截器将用户请求拦截下来，将与用户查询相关的信息写入数据库，然后再把请求交给Action处理。
+代码实现如下：
+
+\input{Coding/intercept.java.tex}
+
+为使得拦截器能够生效，在struts2配置文件struts.xml中编写代码如下：
+
+\input{Coding/struts.xml.tex}
