@@ -18,7 +18,7 @@
 \newpage
 \pic[ht]{数据存储实例}{width=0.6\textwidth}{image021}
 
-\subsection{关键类及关键方法介绍}
+\subsection{相关类及方法}
 在本系统中，使用FTPClient类的实例ftp来完成所有与FTP服务器的交互工作，这些工作包括：连接并登陆匿名的FTP服务器、改变当前FTP会话的工作目录、获取工作目录下的文件信息。
 这些工作的主要实现方法如下，他们都由FTPClient类来提供：
 
@@ -39,7 +39,7 @@
 
 \pic[htbp]{FileComparer类图}{width=0.8\textwidth}{image023}
 
-\subsection{相关数据结构}
+\subsection{数据结构设计}
 FileInfo类用于4.1.1数据存储格式中文件信息的实例化，每一条文件信息构建一个FileInfo实例。
 Files类将工作目录和目录下的文件信息结合在一起，他包含path，以及在这个工作目录下的所有文件信息。这样就很好的与4.1.1数据存储格式对应了起来。
 由于ArrayList在遍历时，其中的元素不能删除，故用Delete\-Index记录每个工作路径下需要被删除的文件信息。最后统一删除。
@@ -60,7 +60,7 @@ Files类将工作目录和目录下的文件信息结合在一起，他包含pat
 
 \input{Coding/Compare.java.tex}
 
-\subsection{对比结果存储格式}
+\subsection{结果存储格式}
 对比结果文本分为4部分，如表\ref{table2}所示，目录行及文件信息行的定义与4.1.1中一致。
 文件头部：指明了文件信息所属的服务器及该服务器所开放的端口。
 被删除的条目：FTP服务器上被删除的文件，被索引模块用于删除Lucene索引中过时的条目。
@@ -75,9 +75,9 @@ Files类将工作目录和目录下的文件信息结合在一起，他包含pat
 
 \section{数据索引模块}
 数据索引模块将执行Lucene的索引过程，对搜集到的FTP文件信息文本进行索引。数据只有经过索引之后才能够被用于搜索。
-\subsection{关键类及关键方法介绍}
+\subsection{相关类及方法}
 IndexWriter类：IndexWriter类是org.apache.lucene.index包中的类，他主要负责创建并维护一个lucene索引。在数据索引模块中，使用indexWriter实例的\\add\-Docu\-ment\-(Document doc)方法来将相关数据构建成的Document实例添加至Lucene索引中。
-\subsection{构建IndexWriter实例}
+\subsection{构建IndexWriter}
 构建indexWriter实例需要经过以下的过程：
 
 1.指定lucene索引的存放位置。
@@ -92,7 +92,7 @@ IndexWriterConfig的实例用于修改IndexWriter的一切配置，以使得新�
 3. 构建IndexWriter实例。
 
 在完成1、2两个步操作后，利用1、2所构建的对象实例来构建出indexWriter实例，例如：indexWriter = new IndexWriter(dir, iwconf)。
-\subsection{FTP搜索引擎的Lucene Document的结构及构建}
+\subsection{构建Document}
 在FTP搜索引擎中，Lucene的Document实例用于存储文件信息，一个document实例对应一个文件的文件信息。结构如表\ref{table3}所示。
 \newpage
 \pictable[ht]{FTP搜索引擎Lucene Document结构}{width=0.8\textwidth}{table3}
@@ -102,7 +102,7 @@ Document实例构建过程如下：
 1. 使用构造方法，构建一个Document实例，例如：Document doc = new Document();
 
 2. 使用Document实例的add(Fieldable field)方法向Document实例中添加实现了Fieldable接口的实例。
-\subsection{实现了Fieldable接口的类的构造方法解释}
+\subsection{Fieldable接口}
 对于字符串类型的索引，使用Field(String name, String value, Field.Store store, Field.Index index)来构建。各参数的含义见表\ref{table4}。
 
 \pictable[ht]{Field实例构造方法个参数意义}{width=0.8\textwidth}{table4}
@@ -193,7 +193,7 @@ After the iteration steps (3, 4, 5, 6) are complete, the distance is found in ce
 
 将score作为一个变参数，在使用函数的时候传入，可比较灵活的定义匹配的模糊程度，简单地说score越大这两个项之间的相关性越大，score越小，相关性越小。
 
-\subsection{关键类及关键方法介绍}
+\subsection{相关类及方法}
 IndexReader类：这是一种抽象类，为访问Lucene索引提供了一个接口，任何对索引的搜索操作都需要通过IndexReader类的这个接口。它为IndexSearcher的搜索提供基础。使用该类的静态方法IndexReader.open(Directory dir)来获取IndexReader\\的实例，和4.3.2中构建IndexWriter的对象实例一样，它同样需要指定lucene索引的存放位置。
 
 IndexSearcher类：该类是搜索索引的门户，所有的搜索都通过IndexSearcher的实例来完成。当构建好了IndexReader对象实例后，使用IndexSearcher带有参数的构造方法IndexSearcher(reader)来构建IndexSearcher对象实例，这个参数是Index\-Reader的对象实例。
@@ -223,7 +223,7 @@ ScoreDoc类：提供对TopDocs中每条搜索结果的访问接口。
 \input{Coding/FTPResult.java.tex}
 
 \section{基于MyBatis的数据库操作}
-\subsection{MyBatis程序基本结构}
+\subsection{MyBatis程序结构}
 首先，Mybatis需要有一个全局配置文件。在全局配置文件中需要配置的信息主要包括如下几个方面\citeup{10}：
 
 Properties：用于提供一系列的键值对组成的属性信息，该属性信息可以用于整个配置文件中。
@@ -269,7 +269,7 @@ Mappers：程序中所有用到的 SQL 映射文件都在这里列出，这些�
 \input{Coding/delete.java.tex}
 
 在进行了删除操作之后一定要使用session.commit()将事务提交到数据库，否则删除、插入、修改这类操作是无法生效的。完成操作后，使用session.close()关闭与数据库的连接。
-\subsection{本系统中的数据库操作}
+\subsection{数据库操作}
 下面列举了一些系统中对数据库的操作。
 
 1. FTP服务器表相关操作：

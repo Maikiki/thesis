@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.7)  1 JUN 2016 23:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.7)  8 JUN 2016 12:15
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -2006,9 +2006,38 @@ File: c70rm.fd 2016/02/02 v2.3 Chinese font definition (CTEX)
 )
 Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (
 quanjiao) on input line 4.
+
+Overfull \hbox (7.29735pt too wide) in paragraph at lines 6--7
+\C70/rm/m/n/12.05/4e $ * \C70/rm/m/n/12.05/65 π \C70/rm/m/n/12.05/97 b \C70/rm/
+m/n/12.05/5b ˘\OT1/ptm/m/n/12.05 FTP\C70/rm/m/n/12.05/64  \C70/rm/m/n/12.05/7d
+ " \C70/rm/m/n/12.05/5f  \C70/rm/m/n/12.05/64 Œ \C70/rm/m/n/12.05/76 Ñ \C70/rm
+/m/n/12.05/97   \C70/rm/m/n/12.05/6c B \C70/rm/m/n/12.05/8f € \C70/rm/m/n/12.05
+/88 L \C70/rm/m/n/12.05/4e Ü \C70/rm/m/n/12.05/52  \C70/rm/m/n/12.05/67 ê|\C70
+/rm/m/n/12.05/ff | \C70/rm/m/n/12.05/71 6 \C70/rm/m/n/12.05/54  \C70/rm/m/n/1
+2.05/68 9 \C70/rm/m/n/12.05/63 n \C70/rm/m/n/12.05/97   \C70/rm/m/n/12.05/6c B 
+\C70/rm/m/n/12.05/52  \C70/rm/m/n/12.05/67 ê|\C70/rm/m/n/12.05/ff | \C70/rm/m
+/n/12.05/8b æ ° \C70/rm/m/n/12.05/4e   * \C70/rm/m/n/12.05/57 ˙ \C70/rm/m/n/12.
+05/4e é\OT1/ptm/m/n/12.05 B/S 
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \end{Cabstract}
+                   
+? 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12.05> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 9.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 )
+Overfull \hbox (22.89494pt too wide) in paragraph at lines 8--7
+[]\C70/rm/bx/n/12.05/51 s \C70/rm/bx/n/12.05/95 . \C70/rm/bx/n/12.05/8b Õ|\C70/
+rm/bx/n/12.05/ff | []
+ []
+
 (F:\template\./dependences\tex\generic\ctex\zhwindowsfonts.tex
 File: zhwindowsfonts.tex 2016/02/02 v2.3 Windows font map loader for pdfTeX and
  DVIPDFMx (CTEX)
@@ -2029,7 +2058,23 @@ File: zhwindowsfonts.tex 2016/02/02 v2.3 Windows font map loader for pdfTeX and
 (contents/Eabstract.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <15.05624> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-) [3
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \end{Eabstract}
+                   
+? 
+)
+Overfull \hbox (23.37703pt too wide) in paragraph at lines 8--7
+[]\OT1/ptm/b/n/12.05 Keywords: []
+ []
+
+[3
 
 
 ] [4
@@ -2052,7 +2097,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.23007> not available
  [7] [8
 
 
-] (thesis.acr) (thesis.gls)
+]
+(thesis.acr) (thesis.gls)
 \tempsubpiccaptionbox=\box61
 \tempsubpiccaptionindent=\skip102
 \tempsubpiccaptionheadindent=\skip103
@@ -2103,7 +2149,7 @@ n/12.05/8f É \C70/rm/m/n/12.05/65 π \C70/rm/m/n/12.05/4f ø \C70/rm/m/n/12.05/76
 m/m/n/12.05/5f  
  []
 
-<pics/image001.png, id=601, 113.67468pt x 288.3272pt>
+<pics/image001.png, id=606, 113.67468pt x 288.3272pt>
 File: pics/image001.png Graphic file (type png)
  <use pics/image001.png>
 Package pdftex.def Info: pics/image001.png used on input line 12.
@@ -2126,63 +2172,63 @@ m/n/12.05/65 π \C70/rm/m/n/12.05/6c ’ \C70/rm/m/n/12.05/66 / \C70/rm/m/n/12.05/
 
 
 ] [5 <./pics/image001.png>]
-<pics/image004.png, id=623, 472.01344pt x 193.47281pt>
+<pics/image004.png, id=628, 472.01344pt x 193.47281pt>
 File: pics/image004.png Graphic file (type png)
  <use pics/image004.png>
 Package pdftex.def Info: pics/image004.png used on input line 34.
 (pdftex.def)             Requested size: 341.43437pt x 139.95274pt.
 
-<pics/image006.png, id=625, 417.05812pt x 67.0003pt>
+<pics/image006.png, id=630, 417.05812pt x 67.0003pt>
 File: pics/image006.png Graphic file (type png)
  <use pics/image006.png>
 Package pdftex.def Info: pics/image006.png used on input line 49.
 (pdftex.def)             Requested size: 341.43437pt x 54.8547pt.
 
 [6 <./pics/image004.png> <./pics/image006.png>]
-<pics/FSTtable1.pdf, id=637, 437.9562pt x 273.71259pt>
+<pics/FSTtable1.pdf, id=642, 437.9562pt x 273.71259pt>
 File: pics/FSTtable1.pdf Graphic file (type pdf)
 
 <use pics/FSTtable1.pdf>
 Package pdftex.def Info: pics/FSTtable1.pdf used on input line 58.
 (pdftex.def)             Requested size: 341.43437pt x 213.39471pt.
- <pics/FST1.jpg, id=640, 444.66125pt x 60.225pt>
+ <pics/FST1.jpg, id=645, 444.66125pt x 60.225pt>
 File: pics/FST1.jpg Graphic file (type jpg)
 
 <use pics/FST1.jpg>
 Package pdftex.def Info: pics/FST1.jpg used on input line 75.
 (pdftex.def)             Requested size: 256.07741pt x 34.6833pt.
  [7 <./pics/FSTtable1.pdf>]
-<pics/FST2.jpg, id=704, 578.16pt x 120.45pt>
+<pics/FST2.jpg, id=709, 578.16pt x 120.45pt>
 File: pics/FST2.jpg Graphic file (type jpg)
  <use pics/FST2.jpg>
 Package pdftex.def Info: pics/FST2.jpg used on input line 81.
 (pdftex.def)             Requested size: 256.07741pt x 53.3492pt.
 
-<pics/FST3.jpg, id=706, 578.16pt x 141.52875pt>
+<pics/FST3.jpg, id=711, 578.16pt x 141.52875pt>
 File: pics/FST3.jpg Graphic file (type jpg)
  <use pics/FST3.jpg>
 Package pdftex.def Info: pics/FST3.jpg used on input line 87.
 (pdftex.def)             Requested size: 256.07741pt x 62.6853pt.
 
-<pics/FST4.jpg, id=708, 578.16pt x 184.69pt>
+<pics/FST4.jpg, id=713, 578.16pt x 184.69pt>
 File: pics/FST4.jpg Graphic file (type jpg)
  <use pics/FST4.jpg>
 Package pdftex.def Info: pics/FST4.jpg used on input line 93.
 (pdftex.def)             Requested size: 256.07741pt x 81.8021pt.
 
-<pics/FST5.png, id=710, 578.16pt x 180.675pt>
+<pics/FST5.png, id=715, 578.16pt x 180.675pt>
 File: pics/FST5.png Graphic file (type png)
  <use pics/FST5.png>
 Package pdftex.def Info: pics/FST5.png used on input line 99.
 (pdftex.def)             Requested size: 256.07741pt x 80.0238pt.
  [8 <./pics/FST1.jpg> <./pics/FST2.jpg> <./pics/FST3.jpg> <./pics/FST4.jpg>]
-<pics/FST6.jpg, id=719, 474.77374pt x 70.2625pt>
-File: pics/FST6.jpg Graphic file (type jpg)
- <use pics/FST6.jpg>
-Package pdftex.def Info: pics/FST6.jpg used on input line 110.
-(pdftex.def)             Requested size: 341.43437pt x 50.53105pt.
- [9 <./pics/FST5.png> <./pics/FST6.jpg>]
-<pics/image007.png, id=729, 442.65375pt x 180.675pt>
+<pics/FST6.pdf, id=724, 263.2535pt x 50.36818pt>
+File: pics/FST6.pdf Graphic file (type pdf)
+ <use pics/FST6.pdf>
+Package pdftex.def Info: pics/FST6.pdf used on input line 110.
+(pdftex.def)             Requested size: 341.43437pt x 65.32643pt.
+ [9 <./pics/FST5.png> <./pics/FST6.pdf>]
+<pics/image007.png, id=757, 442.65375pt x 180.675pt>
 File: pics/image007.png Graphic file (type png)
  <use pics/image007.png>
 Package pdftex.def Info: pics/image007.png used on input line 119.
@@ -2199,7 +2245,7 @@ m/n/12.05/30 | \OT1/ptm/m/n/12.05 segments.gen\C70/rm/m/n/12.05/54 å\OT1/ptm/m
 /n/12.05 segments[]4\C70/rm/m/n/12.05/66 /
  []
 
-<pics/image008.png, id=733, 464.4853pt x 370.38374pt>
+<pics/image008.png, id=761, 464.4853pt x 370.38374pt>
 File: pics/image008.png Graphic file (type png)
  <use pics/image008.png>
 Package pdftex.def Info: pics/image008.png used on input line 144.
@@ -2231,7 +2277,7 @@ m/m/n/12.05 world|\C70/rm/m/n/12.05/20 | \C70/rm/m/n/12.05/4e  |\C70/rm/m/n/1
 2.05/20 |\OT1/ptm/m/n/12.05 word|\C70/rm/m/n/12.05/20 |
  []
 
-[12] <pics/image011.png, id=757, 322.25311pt x 182.39572pt>
+[12] <pics/image011.png, id=785, 322.25311pt x 182.39572pt>
 File: pics/image011.png Graphic file (type png)
 
 <use pics/image011.png>
@@ -2255,7 +2301,7 @@ Overfull \hbox (13.21188pt too wide) in paragraph at lines 218--220
 \OT1/ptm/m/n/12.05 smart-
  []
 
-<pics/image014.png, id=769, 642.4pt x 752.8125pt>
+<pics/image014.png, id=798, 642.4pt x 752.8125pt>
 File: pics/image014.png Graphic file (type png)
  <use pics/image014.png>
 Package pdftex.def Info: pics/image014.png used on input line 233.
@@ -2281,13 +2327,13 @@ m/m/n/12.05/7c ˚ \C70/rm/m/n/12.05/7e ﬂ \C70/rm/m/n/12.05/5b å \C70/rm/m/n/12.0
 
 
 
-] <pics/image015.jpg, id=796, 330.23375pt x 281.05pt>
+] <pics/image015.jpg, id=825, 330.23375pt x 281.05pt>
 File: pics/image015.jpg Graphic file (type jpg)
 
 <use pics/image015.jpg>
 Package pdftex.def Info: pics/image015.jpg used on input line 17.
 (pdftex.def)             Requested size: 170.71393pt x 145.29343pt.
- <pics/image016.jpg, id=798, 560.0925pt x 287.0725pt>
+ <pics/image016.jpg, id=827, 560.0925pt x 287.0725pt>
 File: pics/image016.jpg Graphic file (type jpg)
 
 <use pics/image016.jpg>
@@ -2307,14 +2353,14 @@ ff | \C70/rm/m/n/12.05/7e œ \C70/rm/m/n/12.05/75 1 \C70/rm/m/n/12.05/5b ö \C70
 12.05/4e -
  []
 
-<pics/image018.png, id=805, 460.72125pt x 228.10219pt>
+<pics/image018.png, id=834, 460.72125pt x 228.10219pt>
 File: pics/image018.png Graphic file (type png)
  <use pics/image018.png>
 Package pdftex.def Info: pics/image018.png used on input line 36.
 (pdftex.def)             Requested size: 341.43437pt x 169.04355pt.
 
 [20 <./pics/image018.png>]
-<pics/image020.png, id=815, 407.27156pt x 323.70938pt>
+<pics/image020.png, id=844, 407.27156pt x 323.70938pt>
 File: pics/image020.png Graphic file (type png)
  <use pics/image020.png>
 Package pdftex.def Info: pics/image020.png used on input line 42.
@@ -2382,27 +2428,27 @@ LaTeX Font Info:    Try loading font information for U+mvs on input line 5.
 
 
 ]
-<pics/table1.pdf, id=852, 469.15274pt x 191.77647pt>
+<pics/table1.pdf, id=880, 469.15274pt x 191.77647pt>
 File: pics/table1.pdf Graphic file (type pdf)
  <use pics/table1.pdf>
 Package pdftex.def Info: pics/table1.pdf used on input line 13.
 (pdftex.def)             Requested size: 341.43437pt x 139.57426pt.
 
 [25 <./pics/table1.pdf>]
-<pics/image021.png, id=920, 428.35031pt x 377.15906pt>
+<pics/image021.png, id=948, 428.35031pt x 377.15906pt>
 File: pics/image021.png Graphic file (type png)
  <use pics/image021.png>
 Package pdftex.def Info: pics/image021.png used on input line 19.
 (pdftex.def)             Requested size: 256.07741pt x 225.47421pt.
 
 [26 <./pics/image021.png>]
-<pics/image022.png, id=926, 344.78813pt x 548.80031pt>
+<pics/image022.png, id=954, 344.78813pt x 548.80031pt>
 File: pics/image022.png Graphic file (type png)
  <use pics/image022.png>
 Package pdftex.def Info: pics/image022.png used on input line 35.
 (pdftex.def)             Requested size: 256.07741pt x 407.6048pt.
 
-[27 <./pics/image022.png>] <pics/image023.jpg, id=935, 642.4pt x 426.59375pt>
+[27 <./pics/image022.png>] <pics/image023.jpg, id=963, 642.4pt x 426.59375pt>
 File: pics/image023.jpg Graphic file (type jpg)
 
 <use pics/image023.jpg>
@@ -2422,7 +2468,7 @@ m/n/12.05/7d   \C70/rm/m/n/12.05/4e  \C70/rm/m/n/12.05/80 ˝ \C70/rm/m/n/12.05/
  []
 
 [28 <./pics/image023.jpg>]
-<pics/image026.png, id=943, 358.33875pt x 480.29437pt>
+<pics/image026.png, id=971, 358.33875pt x 480.29437pt>
 File: pics/image026.png Graphic file (type png)
  <use pics/image026.png>
 Package pdftex.def Info: pics/image026.png used on input line 49.
@@ -2443,7 +2489,7 @@ m/m/n/12.05/76 Ñ \C70/rm/m/n/12.05/7e ∆ \C70/rm/m/n/12.05/53 |\C70/rm/m/n/12.0
 
  []
 
-<pics/image028.png, id=952, 417.05812pt x 314.67563pt>
+<pics/image028.png, id=980, 417.05812pt x 314.67563pt>
 File: pics/image028.png Graphic file (type png)
  <use pics/image028.png>
 Package pdftex.def Info: pics/image028.png used on input line 57.
@@ -2463,13 +2509,13 @@ m/n/12.05/67 ú \C70/rm/m/n/12.05/65 á \C70/rm/m/n/12.05/67 , \C70/rm/m/n/12.05/
  4.1.1\C70/rm/m/n/12.05/4e -
  []
 
-[31] <pics/table2.pdf, id=965, 469.15274pt x 396.71213pt>
+[31] <pics/table2.pdf, id=993, 469.15274pt x 396.71213pt>
 File: pics/table2.pdf Graphic file (type pdf)
 
 <use pics/table2.pdf>
 Package pdftex.def Info: pics/table2.pdf used on input line 70.
 (pdftex.def)             Requested size: 341.43437pt x 288.72575pt.
- <pics/image029.png, id=967, 237.13594pt x 260.47313pt>
+ <pics/image029.png, id=995, 237.13594pt x 260.47313pt>
 File: pics/image029.png Graphic file (type png)
 
 <use pics/image029.png>
@@ -2529,13 +2575,13 @@ m/n/12.05/60 o|\C70/rm/m/n/12.05/ff | \C70/rm/m/n/12.05/4e   *\OT1/ptm/m/n/12.
 05 document\C70/rm/m/n/12.05/5b û
  []
 
-[33] <pics/table3.pdf, id=1072, 382.51909pt x 169.6137pt>
+[33] <pics/table3.pdf, id=1100, 382.51909pt x 169.6137pt>
 File: pics/table3.pdf Graphic file (type pdf)
 
 <use pics/table3.pdf>
 Package pdftex.def Info: pics/table3.pdf used on input line 98.
 (pdftex.def)             Requested size: 341.43437pt x 151.40085pt.
- <pics/table4.pdf, id=1074, 468.43004pt x 200.68977pt>
+ <pics/table4.pdf, id=1102, 468.43004pt x 200.68977pt>
 File: pics/table4.pdf Graphic file (type pdf)
 
 <use pics/table4.pdf>
@@ -2545,13 +2591,13 @@ Package pdftex.def Info: pics/table4.pdf used on input line 108.
 
 pdfTeX warning: pdflatex (file ./pics/table4.pdf): PDF inclusion: multiple pdfs
  with page group included in a single page
->] <pics/table5.pdf, id=1163, 408.92775pt x 155.15968pt>
+>] <pics/table5.pdf, id=1189, 408.92775pt x 155.15968pt>
 File: pics/table5.pdf Graphic file (type pdf)
  <use pics/table5.pdf>
 Package pdftex.def Info: pics/table5.pdf used on input line 112.
 (pdftex.def)             Requested size: 341.43437pt x 129.55667pt.
 
-<pics/table6.pdf, id=1165, 340.36159pt x 131.79237pt>
+<pics/table6.pdf, id=1191, 340.36159pt x 131.79237pt>
 File: pics/table6.pdf Graphic file (type pdf)
  <use pics/table6.pdf>
 Package pdftex.def Info: pics/table6.pdf used on input line 116.
@@ -2574,7 +2620,7 @@ FTP\C70/rm/m/n/12.05/67
 
 pdfTeX warning: pdflatex (file ./pics/table6.pdf): PDF inclusion: multiple pdfs
  with page group included in a single page
->] <pics/image030.png, id=1243, 296.60812pt x 423.08063pt>
+>] <pics/image030.png, id=1269, 296.60812pt x 423.08063pt>
 File: pics/image030.png Graphic file (type png)
 
 <use pics/image030.png>
@@ -2602,7 +2648,7 @@ m/n/12.05 update-Document(Term,Document)\C70/rm/m/n/12.05/65 π \C70/rm/m/n/12.0
 rm)\C70/rm/m/n/12.05/54 å 
  []
 
-[37] [38] <pics/LD1.pdf, id=1260, 248.07681pt x 191.07385pt>
+[37] [38] <pics/LD1.pdf, id=1286, 248.07681pt x 191.07385pt>
 File: pics/LD1.pdf Graphic file (type pdf)
 
 <use pics/LD1.pdf>
@@ -2641,7 +2687,7 @@ rm/m/n/12.05/67 ê \C70/rm/m/n/12.05/4e :\OT1/ptm/m/n/12.05 Query\C70/rm/m/n/12.
 C70/rm/m/n/12.05/5f ó\OT1/ptm/m/n/12.05 IndexSearcher\C70/rm/m/n/12.05/76 Ñ
  []
 
-[39 <./pics/LD1.pdf>] <pics/table7.pdf, id=1282, 454.69875pt x 119.74738pt>
+[39 <./pics/LD1.pdf>] <pics/table7.pdf, id=1308, 454.69875pt x 119.74738pt>
 File: pics/table7.pdf Graphic file (type pdf)
 
 <use pics/table7.pdf>
@@ -2701,7 +2747,7 @@ n/12.05/67  \C70/rm/m/n/12.05/80 ˝ \C70/rm/m/n/12.05/59  \C70/rm/m/n/12.05/8b
  []
 
 (Coding/back.java.tex) [40 <./pics/table7.pdf>]
-<pics/image032.png, id=1322, 212.29312pt x 429.85594pt>
+<pics/image032.png, id=1348, 212.29312pt x 429.85594pt>
 File: pics/image032.png Graphic file (type png)
 
 <use pics/image032.png>
@@ -2710,7 +2756,7 @@ Package pdftex.def Info: pics/image032.png used on input line 219.
  (Coding/FTPResult.java.tex) [41 <./pics/image032.png>]
 [42] (Coding/Mybatisconfig.xml.tex) [43] [44] (Coding/Sqlsession.java.tex)
 (Coding/SQL.java.tex) [45] (Coding/FeedbackMapper.java.tex)
-<pics/table8.pdf, id=1352, 462.16666pt x 147.69177pt>
+<pics/table8.pdf, id=1378, 462.16666pt x 147.69177pt>
 File: pics/table8.pdf Graphic file (type pdf)
  <use pics/table8.pdf>
 Package pdftex.def Info: pics/table8.pdf used on input line 265.
@@ -2755,7 +2801,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 329--330
  []
 
 (Coding/modify.java.tex) [49] [50]
-<pics/image034.png, id=1416, 293.59688pt x 159.59625pt>
+<pics/image034.png, id=1443, 293.59688pt x 159.59625pt>
 File: pics/image034.png Graphic file (type png)
 
 <use pics/image034.png>
@@ -2767,7 +2813,7 @@ Package pdftex.def Info: pics/image034.png used on input line 348.
 
  (chapters/5.tex
 Á¨¨5Á´†
-<pics/image035.png, id=1433, 730.73pt x 547.04375pt>
+<pics/image035.png, id=1460, 730.73pt x 547.04375pt>
 File: pics/image035.png Graphic file (type png)
  <use pics/image035.png>
 Package pdftex.def Info: pics/image035.png used on input line 8.
@@ -2778,64 +2824,64 @@ Package pdftex.def Info: pics/image035.png used on input line 8.
 
 
  <./pics/image035.png>]
-<pics/image045.png, id=1442, 686.565pt x 450.68375pt>
+<pics/image045.png, id=1469, 686.565pt x 450.68375pt>
 File: pics/image045.png Graphic file (type png)
  <use pics/image045.png>
 Package pdftex.def Info: pics/image045.png used on input line 13.
 (pdftex.def)             Requested size: 341.43437pt x 224.1241pt.
 
-<pics/image047.png, id=1444, 599.23875pt x 225.84375pt>
+<pics/image047.png, id=1471, 599.23875pt x 225.84375pt>
 File: pics/image047.png Graphic file (type png)
 
 <use pics/image047.png>
 Package pdftex.def Info: pics/image047.png used on input line 17.
 (pdftex.def)             Requested size: 341.43437pt x 128.68402pt.
  [55 <./pics/image045.png> <./pics/image047.png>]
-<pics/image049.png, id=1451, 605.26125pt x 264.99pt>
+<pics/image049.png, id=1478, 605.26125pt x 264.99pt>
 File: pics/image049.png Graphic file (type png)
  <use pics/image049.png>
 Package pdftex.def Info: pics/image049.png used on input line 21.
 (pdftex.def)             Requested size: 341.43437pt x 149.4851pt.
 
-<pics/image037.png, id=1453, 730.73pt x 547.04375pt>
+<pics/image037.png, id=1480, 730.73pt x 547.04375pt>
 File: pics/image037.png Graphic file (type png)
  <use pics/image037.png>
 Package pdftex.def Info: pics/image037.png used on input line 26.
 (pdftex.def)             Requested size: 341.43437pt x 255.6081pt.
 
 [56 <./pics/image049.png> <./pics/image037.png>]
-<pics/image039.png, id=1461, 730.73pt x 547.04375pt>
+<pics/image039.png, id=1488, 730.73pt x 547.04375pt>
 File: pics/image039.png Graphic file (type png)
  <use pics/image039.png>
 Package pdftex.def Info: pics/image039.png used on input line 30.
 (pdftex.def)             Requested size: 341.43437pt x 255.6081pt.
 
-<pics/image041.png, id=1463, 730.73pt x 547.04375pt>
+<pics/image041.png, id=1490, 730.73pt x 547.04375pt>
 File: pics/image041.png Graphic file (type png)
  <use pics/image041.png>
 Package pdftex.def Info: pics/image041.png used on input line 34.
 (pdftex.def)             Requested size: 341.43437pt x 255.6081pt.
 
-<pics/image043.png, id=1465, 730.73pt x 547.04375pt>
+<pics/image043.png, id=1492, 730.73pt x 547.04375pt>
 File: pics/image043.png Graphic file (type png)
  <use pics/image043.png>
 Package pdftex.def Info: pics/image043.png used on input line 38.
 (pdftex.def)             Requested size: 341.43437pt x 255.6081pt.
 
 [57 <./pics/image039.png> <./pics/image041.png>]
-<pics/image040.png, id=1473, 749.80125pt x 473.51906pt>
+<pics/image040.png, id=1500, 749.80125pt x 473.51906pt>
 File: pics/image040.png Graphic file (type png)
 
 <use pics/image040.png>
 Package pdftex.def Info: pics/image040.png used on input line 42.
 (pdftex.def)             Requested size: 341.43437pt x 215.62491pt.
-) [58 <./pics/image043.png> <./pics/image040.png>]
+ [58 <./pics/image043.png> <./pics/image040.png>])
+[59]
 \openout2 = `chapters/6.aux'.
 
-
-(chapters/6.tex
+ (chapters/6.tex
 Á¨¨6Á´†
-) [59
+) [60
 
 
 
@@ -2861,7 +2907,7 @@ Underfull \hbox (badness 3930) in paragraph at lines 61--66
 .53937 http : / / lucene . apache . org / core / old _
  []
 
-) [60
+) [61
 
 
 ]
@@ -2870,7 +2916,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 6.025pt
 (hyperref)                replaced by space on input line 14.
 
-(contents/acknowledgements.tex) (contents/appendix.tex) [61
+(contents/acknowledgements.tex) (contents/appendix.tex) [62
 
 ]
 *************************************************
@@ -2883,7 +2929,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 (contents/original.tex
 
-<pics/trans1.png, id=1511, 211.54031pt x 222.07968pt>
+<pics/trans1.png, id=1542, 211.54031pt x 222.07968pt>
 File: pics/trans1.png Graphic file (type png)
  <use pics/trans1.png>
 Package pdftex.def Info: pics/trans1.png used on input line 8.
@@ -2895,38 +2941,38 @@ ptm/m/n/12.05 tired,tired,tired,tired,hungry,tired,tired,tired,bored,tired,tire
 d, 
  []
 
-[62
+[63
 
 
 
-] [63 <./pics/trans1.png>]
-<pics/trans2.png, id=1526, 537.50812pt x 176.91093pt>
+] [64 <./pics/trans1.png>]
+<pics/trans2.png, id=1557, 537.50812pt x 176.91093pt>
 File: pics/trans2.png Graphic file (type png)
  <use pics/trans2.png>
 Package pdftex.def Info: pics/trans2.png used on input line 43.
 (pdftex.def)             Requested size: 341.43437pt x 112.37767pt.
 
-[64] [65 <./pics/trans2.png>]
-<pics/trans3.png, id=1543, 483.30562pt x 453.19313pt>
+[65] [66 <./pics/trans2.png>]
+<pics/trans3.png, id=1574, 483.30562pt x 453.19313pt>
 File: pics/trans3.png Graphic file (type png)
  <use pics/trans3.png>
 Package pdftex.def Info: pics/trans3.png used on input line 48.
 (pdftex.def)             Requested size: 256.07741pt x 240.12897pt.
 
-[66 <./pics/trans3.png>] <pics/trans4.png, id=1551, 544.28343pt x 417.81094pt>
+[67 <./pics/trans3.png>] <pics/trans4.png, id=1582, 544.28343pt x 417.81094pt>
 File: pics/trans4.png Graphic file (type png)
 
 <use pics/trans4.png>
 Package pdftex.def Info: pics/trans4.png used on input line 53.
 (pdftex.def)             Requested size: 341.43437pt x 262.09386pt.
- [67 <./pics/trans4.png>]
-<pics/oripic.png, id=1558, 552.56438pt x 473.51906pt>
+ [68 <./pics/trans4.png>]
+<pics/oripic.png, id=1589, 552.56438pt x 473.51906pt>
 File: pics/oripic.png Graphic file (type png)
  <use pics/oripic.png>
 Package pdftex.def Info: pics/oripic.png used on input line 59.
 (pdftex.def)             Requested size: 426.79135pt x 365.73793pt.
 )
-[68 <./pics/oripic.png>]
+[69 <./pics/oripic.png>]
 \openout2 = `contents/translation.aux'.
 
  (contents/translation.texpdfTeX warning (ext4): destination with the same iden
@@ -2957,7 +3003,7 @@ ignored
 <to be read again> 
                    \relax 
 l.15 \section{ÊúâÈôêÁä∂ÊÄÅËΩ¨ÁßªÊú∫}
-                                     [69
+                                     [70
 
 
 
@@ -2981,7 +3027,7 @@ m/m/n/12.05/53 ÿ \C70/rm/m/n/12.05/62  |\C70/rm/m/n/12.05/20 |\OT1/ptm/m/n/12
 OT1/ptm/m/n/12.05 rsaxy 
  []
 
-[70]pdfTeX warning (ext4): destination with the same identifier (name{section.A
+[71]pdfTeX warning (ext4): destination with the same identifier (name{section.A
 .5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -2996,7 +3042,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{section.A.6})
 <to be read again> 
                    \relax 
 l.42 \section{Êâ©Â±ïÊúâÈôêÁä∂ÊÄÅËΩ¨ÁßªÊú∫}
-                                           [71]
+                                           [72]
 File: pics/trans3.png Graphic file (type png)
  <use pics/trans3.png>
 Package pdftex.def Info: pics/trans3.png used on input line 45.
@@ -3006,15 +3052,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{section.A.7})
 <to be read again> 
                    \relax 
 l.47 ...n{ÂêàÂπ∂ÊàêÂçï‰∏ÄÁöÑÊúâÈôêÁä∂ÊÄÅËΩ¨ÁßªÊú∫}
-                                                   [72]
+                                                   [73]
 File: pics/trans4.png Graphic file (type png)
  <use pics/trans4.png>
 Package pdftex.def Info: pics/trans4.png used on input line 50.
 (pdftex.def)             Requested size: 341.43437pt x 262.09386pt.
 )
-Package atenddvi Info: Last page = 81.
+Package atenddvi Info: Last page = 82.
 
-[73]
+[74]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 14.
  (thesis.aux (contents/Cabstract.aux) (contents/Eabstract.aux)
@@ -3024,26 +3070,26 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 14.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 14.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 14.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 51636EEC9B367986B00F8FE4329476D5;9971.
+(rerunfilecheck)             Checksum: 6BCFDB7189B21A1A269378E4E38D9991;9708.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 32397 strings out of 493634
- 530312 string characters out of 3148637
- 613779 words of memory out of 3000000
- 34201 multiletter control sequences out of 15000+200000
+ 32394 strings out of 493634
+ 530207 string characters out of 3148637
+ 613610 words of memory out of 3000000
+ 34196 multiletter control sequences out of 15000+200000
  111784 words of font info for 370 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 56i,13n,89p,10582b,717s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,13n,89p,10582b,716s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/s
-imhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows
-/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:
-/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei
+imhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows
+/Fonts/simsun.ttc><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:
+/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei
 .ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Font
-s/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Wind
+s/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simhei.ttf><C:/Wind
 ows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc>
 <C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/sim
 hei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/F
@@ -3056,11 +3102,11 @@ s/Fonts/simsun.ttc><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C
 i.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fon
 ts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Win
 dows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf
-><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/si
+><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/si
 mhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/
 Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/
 Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.
-ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts
+ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts
 /simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windo
 ws/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><
 C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simh
@@ -3094,9 +3140,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><E:/Tools/MiKTex/fonts/type1/public/amsfonts/
 cm/cmtt10.pfb><E:/Tools/MiKTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb><E:/To
 ols/MiKTex/fonts/type1/public/marvosym/marvosym.pfb><E:/Tools/MiKTex/fonts/type
 1/urw/times/utmb8a.pfb><E:/Tools/MiKTex/fonts/type1/urw/times/utmr8a.pfb>
-Output written on thesis.pdf (81 pages, 3326630 bytes).
+Output written on thesis.pdf (82 pages, 3321132 bytes).
 PDF statistics:
- 2081 PDF objects out of 2487 (max. 8388607)
- 244 named destinations out of 1000 (max. 500000)
- 1151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2113 PDF objects out of 2487 (max. 8388607)
+ 246 named destinations out of 1000 (max. 500000)
+ 1159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
